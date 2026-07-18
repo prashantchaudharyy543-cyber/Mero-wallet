@@ -1,0 +1,533 @@
+/* ==========================================
+   NEPPAY WALLET
+   MERCHANT PAYMENT
+   PART 12.2
+========================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:#F5F7FB;
+
+color:#222;
+
+}
+
+.merchant-page{
+
+max-width:430px;
+
+margin:auto;
+
+min-height:100vh;
+
+padding:20px;
+
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.merchant-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:25px;
+
+}
+
+.merchant-header h2{
+
+font-size:24px;
+
+font-weight:700;
+
+color:#111827;
+
+}
+
+.merchant-header button{
+
+width:46px;
+
+height:46px;
+
+border:none;
+
+border-radius:50%;
+
+background:#fff;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+cursor:pointer;
+
+font-size:18px;
+
+color:#16A34A;
+
+transition:.3s;
+
+}
+
+.merchant-header button:hover{
+
+background:#16A34A;
+
+color:#fff;
+
+transform:scale(1.05);
+
+}
+
+/* ==========================
+   MERCHANT CARD
+========================== */
+
+.merchant-card{
+
+background:linear-gradient(135deg,#16A34A,#22C55E);
+
+padding:35px 20px;
+
+border-radius:28px;
+
+text-align:center;
+
+color:white;
+
+box-shadow:0 18px 35px rgba(22,163,74,.25);
+
+margin-bottom:25px;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.merchant-card::before{
+
+content:"";
+
+position:absolute;
+
+top:-60px;
+
+right:-60px;
+
+width:180px;
+
+height:180px;
+
+background:rgba(255,255,255,.08);
+
+border-radius:50%;
+
+}
+
+.merchant-card::after{
+
+content:"";
+
+position:absolute;
+
+bottom:-70px;
+
+left:-70px;
+
+width:160px;
+
+height:160px;
+
+background:rgba(255,255,255,.05);
+
+border-radius:50%;
+
+}
+
+.merchant-logo{
+
+width:95px;
+
+height:95px;
+
+border-radius:50%;
+
+background:#fff;
+
+padding:8px;
+
+object-fit:cover;
+
+margin-bottom:18px;
+
+border:4px solid rgba(255,255,255,.8);
+
+}
+
+.merchant-card h2{
+
+font-size:24px;
+
+margin-bottom:8px;
+
+}
+
+.merchant-card p{
+
+opacity:.9;
+
+margin-bottom:14px;
+
+}
+
+.verified{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:8px;
+
+padding:8px 18px;
+
+border-radius:25px;
+
+background:rgba(255,255,255,.15);
+
+font-size:14px;
+
+}
+
+/* ==========================
+   PAYMENT CARD
+========================== */
+
+.payment-card{
+
+background:#fff;
+
+padding:22px;
+
+border-radius:22px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+margin-bottom:20px;
+
+}
+
+.payment-card label{
+
+display:block;
+
+margin-bottom:8px;
+
+font-weight:600;
+
+color:#374151;
+
+}
+
+.payment-card input{
+
+width:100%;
+
+padding:15px;
+
+border:2px solid #E5E7EB;
+
+border-radius:14px;
+
+outline:none;
+
+font-size:15px;
+
+margin-bottom:18px;
+
+transition:.3s;
+
+}
+
+.payment-card input:focus{
+
+border-color:#16A34A;
+
+box-shadow:0 0 0 4px rgba(22,163,74,.10);
+
+}
+
+#payNow{
+
+width:100%;
+
+padding:16px;
+
+border:none;
+
+border-radius:16px;
+
+background:#16A34A;
+
+color:white;
+
+font-size:16px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+#payNow:hover{
+
+background:#15803D;
+
+transform:translateY(-2px);
+
+}
+
+/* ==========================
+   FAVORITE
+========================== */
+
+.favorite-card{
+
+background:#fff;
+
+padding:18px;
+
+border-radius:20px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+}
+
+#favoriteBtn{
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:14px;
+
+background:#FEE2E2;
+
+color:#DC2626;
+
+font-size:15px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+#favoriteBtn:hover{
+
+background:#DC2626;
+
+color:white;
+
+}
+
+#favoriteBtn i{
+
+margin-right:8px;
+
+}
+
+/* ==========================
+   DARK MODE
+========================== */
+
+body.dark{
+
+background:#0F172A;
+
+}
+
+body.dark .payment-card,
+
+body.dark .favorite-card,
+
+body.dark .merchant-header button{
+
+background:#1E293B;
+
+color:white;
+
+}
+
+body.dark .payment-card label{
+
+color:white;
+
+}
+
+body.dark .payment-card input{
+
+background:#334155;
+
+border-color:#475569;
+
+color:white;
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:480px){
+
+.merchant-page{
+
+padding:16px;
+
+}
+
+.merchant-card{
+
+padding:30px 18px;
+
+}
+
+.merchant-logo{
+
+width:80px;
+
+height:80px;
+
+}
+
+.merchant-card h2{
+
+font-size:22px;
+
+}
+
+.payment-card{
+
+padding:18px;
+
+}
+
+#payNow{
+
+font-size:15px;
+
+}
+
+}
+
+/* ==========================================
+PART 12.5
+DASHBOARD
+========================================== */
+
+.wallet-card,
+.search-card,
+.recent-card,
+.history-card{
+
+background:#fff;
+
+padding:20px;
+
+border-radius:20px;
+
+margin-top:20px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+}
+
+.wallet-card h3{
+
+color:#6B7280;
+
+margin-bottom:8px;
+
+}
+
+.wallet-card h1{
+
+color:#16A34A;
+
+font-size:32px;
+
+}
+
+.search-card input{
+
+width:100%;
+
+padding:15px;
+
+border:2px solid #E5E7EB;
+
+border-radius:14px;
+
+font-size:15px;
+
+outline:none;
+
+}
+
+.search-card input:focus{
+
+border-color:#16A34A;
+
+}
+
+.recent-card ul,
+.history-card ul{
+
+list-style:none;
+
+margin-top:15px;
+
+padding:0;
+
+}
+
+.recent-card li,
+.history-card li{
+
+padding:12px 0;
+
+border-bottom:1px solid #eee;
+
+font-size:14px;
+
+display:flex;
+
+justify-content:space-between;
+
+}
+
+.recent-card li:last-child,
+.history-card li:last-child{
+
+border-bottom:none;
+
+}

@@ -1,0 +1,4878 @@
+/* =====================================
+   NepPay Wallet
+   Professional Fintech UI
+   Part 1.2A
+======================================*/
+
+/* ---------- RESET ---------- */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:'Poppins',sans-serif;
+
+background:#f4f7fb;
+
+color:#222;
+
+}
+
+img{
+
+max-width:100%;
+
+display:block;
+
+}
+
+button{
+
+font-family:inherit;
+
+cursor:pointer;
+
+border:none;
+
+outline:none;
+
+}
+
+a{
+
+text-decoration:none;
+
+}
+
+/* ---------- VARIABLES ---------- */
+
+:root{
+
+--primary:#14B85C;
+
+--primary-dark:#0F9E4C;
+
+--primary-light:#EAFBF1;
+
+--white:#ffffff;
+
+--text:#1F2937;
+
+--gray:#6B7280;
+
+--background:#F4F7FB;
+
+--shadow:0 10px 25px rgba(0,0,0,.08);
+
+--radius:22px;
+
+}
+
+/* ---------- APP ---------- */
+
+.app{
+
+max-width:430px;
+
+margin:auto;
+
+min-height:100vh;
+
+background:var(--background);
+
+position:relative;
+
+overflow:hidden;
+
+padding-bottom:120px;
+
+}
+
+/* ---------- HEADER ---------- */
+
+.header{
+
+background:linear-gradient(
+135deg,
+#12B75A,
+#17C964
+);
+
+padding:25px 22px 120px;
+
+border-bottom-left-radius:35px;
+
+border-bottom-right-radius:35px;
+
+position:relative;
+
+}
+
+/* Soft Glow */
+
+.header::before{
+
+content:"";
+
+position:absolute;
+
+width:250px;
+
+height:250px;
+
+right:-80px;
+
+top:-90px;
+
+background:rgba(255,255,255,.12);
+
+border-radius:50%;
+
+}
+
+/* ---------- HEADER TOP ---------- */
+
+.header-top{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+position:relative;
+
+z-index:5;
+
+}
+
+.user{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+}
+
+.user img{
+
+width:58px;
+
+height:58px;
+
+border-radius:50%;
+
+border:3px solid rgba(255,255,255,.4);
+
+object-fit:cover;
+
+}
+
+.user h2{
+
+font-size:20px;
+
+font-weight:600;
+
+color:white;
+
+}
+
+.user p{
+
+font-size:13px;
+
+color:rgba(255,255,255,.85);
+
+margin-top:3px;
+
+}
+
+.header-icons{
+
+display:flex;
+
+gap:16px;
+
+}
+
+.header-icons i{
+
+width:42px;
+
+height:42px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:rgba(255,255,255,.15);
+
+border-radius:50%;
+
+color:white;
+
+font-size:17px;
+
+backdrop-filter:blur(10px);
+
+transition:.3s;
+
+}
+
+.header-icons i:hover{
+
+background:white;
+
+color:var(--primary);
+
+transform:translateY(-2px);
+
+}
+
+/* ---------- BALANCE CARD ---------- */
+
+.balance-card{
+
+position:absolute;
+
+left:20px;
+
+right:20px;
+
+bottom:-65px;
+
+background:white;
+
+border-radius:26px;
+
+padding:24px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+box-shadow:var(--shadow);
+
+z-index:20;
+
+}
+
+.balance-card p{
+
+font-size:14px;
+
+color:var(--gray);
+
+}
+
+.balance-card h1{
+
+font-size:30px;
+
+margin:10px 0;
+
+font-weight:700;
+
+color:var(--text);
+
+}
+
+.balance-card span{
+
+font-size:13px;
+
+color:var(--primary);
+
+font-weight:500;
+
+}
+
+/* ---------- EYE BUTTON ---------- */
+
+#eyeBtn{
+
+width:52px;
+
+height:52px;
+
+border-radius:50%;
+
+background:var(--primary-light);
+
+color:var(--primary);
+
+font-size:18px;
+
+transition:.3s;
+
+}
+
+#eyeBtn:hover{
+
+background:var(--primary);
+
+color:white;
+
+transform:rotate(180deg);
+
+}
+
+/* ---------- CONTENT ---------- */
+
+.content{
+
+margin-top:90px;
+
+padding:20px;
+
+}
+
+/* =====================================
+   PART 1.2B
+   Quick Actions + Utility Section
+======================================*/
+
+/* ---------- QUICK ACTIONS ---------- */
+
+.quick-actions{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:16px;
+
+margin-bottom:28px;
+
+}
+
+.action{
+
+background:var(--white);
+
+border-radius:20px;
+
+padding:18px 10px;
+
+text-align:center;
+
+box-shadow:0 8px 20px rgba(0,0,0,.05);
+
+cursor:pointer;
+
+transition:all .3s ease;
+
+}
+
+.action:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 15px 30px rgba(20,184,92,.15);
+
+}
+
+.action .icon{
+
+width:60px;
+
+height:60px;
+
+margin:auto;
+
+border-radius:18px;
+
+background:var(--primary-light);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+margin-bottom:12px;
+
+transition:.3s;
+
+}
+
+.action:hover .icon{
+
+background:var(--primary);
+
+color:white;
+
+transform:scale(1.08);
+
+}
+
+.action .icon i{
+
+font-size:24px;
+
+color:var(--primary);
+
+transition:.3s;
+
+}
+
+.action:hover .icon i{
+
+color:white;
+
+}
+
+.action p{
+
+font-size:13px;
+
+font-weight:600;
+
+color:var(--text);
+
+line-height:18px;
+
+}
+
+/* ---------- SECTION ---------- */
+
+.section{
+
+margin-top:30px;
+
+}
+
+.title{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:18px;
+
+}
+
+.title h3{
+
+font-size:18px;
+
+font-weight:600;
+
+color:var(--text);
+
+}
+
+.title a{
+
+font-size:14px;
+
+color:var(--primary);
+
+font-weight:500;
+
+}
+
+/* ---------- UTILITY GRID ---------- */
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:16px;
+
+}
+
+.service{
+
+background:white;
+
+border-radius:18px;
+
+padding:18px 10px;
+
+text-align:center;
+
+box-shadow:0 6px 18px rgba(0,0,0,.05);
+
+transition:.3s;
+
+cursor:pointer;
+
+}
+
+.service:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 12px 25px rgba(20,184,92,.15);
+
+}
+
+.service i{
+
+font-size:24px;
+
+color:var(--primary);
+
+margin-bottom:10px;
+
+transition:.3s;
+
+}
+
+.service:hover i{
+
+transform:scale(1.15);
+
+}
+
+.service p{
+
+font-size:12px;
+
+font-weight:500;
+
+color:var(--text);
+
+line-height:16px;
+
+}
+
+/* ---------- Ripple Effect ---------- */
+
+.action:active,
+.service:active{
+
+transform:scale(.95);
+
+}
+
+/* ---------- Small Mobile ---------- */
+
+@media(max-width:380px){
+
+.quick-actions{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+/* =====================================
+   PART 1.2C
+   Travel + Offer + QR + Bottom Navigation
+======================================*/
+
+/* ---------- TRAVEL SECTION ---------- */
+
+.travel{
+display:flex;
+gap:16px;
+overflow-x:auto;
+padding-bottom:8px;
+scrollbar-width:none;
+}
+
+.travel::-webkit-scrollbar{
+display:none;
+}
+
+.travel-card{
+
+min-width:110px;
+
+background:var(--white);
+
+border-radius:20px;
+
+padding:22px 15px;
+
+text-align:center;
+
+box-shadow:0 8px 20px rgba(0,0,0,.05);
+
+transition:.3s;
+
+cursor:pointer;
+
+}
+
+.travel-card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 15px 30px rgba(20,184,92,.15);
+
+}
+
+.travel-card i{
+
+font-size:28px;
+
+color:var(--primary);
+
+margin-bottom:15px;
+
+transition:.3s;
+
+}
+
+.travel-card:hover i{
+
+transform:scale(1.12);
+
+}
+
+.travel-card p{
+
+font-size:14px;
+
+font-weight:600;
+
+color:var(--text);
+
+}
+
+/* ---------- OFFER CARD ---------- */
+
+.offer{
+
+margin-top:30px;
+
+background:linear-gradient(135deg,#14B85C,#19CF67);
+
+border-radius:24px;
+
+padding:24px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+color:white;
+
+box-shadow:0 12px 28px rgba(20,184,92,.25);
+
+}
+
+.offer h3{
+
+font-size:22px;
+
+margin-bottom:6px;
+
+}
+
+.offer p{
+
+font-size:14px;
+
+opacity:.95;
+
+}
+
+.offer button{
+
+background:white;
+
+color:var(--primary);
+
+padding:12px 22px;
+
+border-radius:14px;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.offer button:hover{
+
+background:#f4fff7;
+
+transform:scale(1.05);
+
+}
+
+/* ---------- FLOATING QR BUTTON ---------- */
+
+.qr{
+
+position:fixed;
+
+left:50%;
+
+bottom:82px;
+
+transform:translateX(-50%);
+
+width:74px;
+
+height:74px;
+
+border-radius:50%;
+
+background:linear-gradient(135deg,#14B85C,#19CF67);
+
+color:white;
+
+font-size:28px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+box-shadow:0 15px 35px rgba(20,184,92,.35);
+
+z-index:999;
+
+transition:.35s;
+
+}
+
+.qr:hover{
+
+transform:translateX(-50%) scale(1.08);
+
+}
+
+.qr i{
+
+pointer-events:none;
+
+}
+
+/* ---------- BOTTOM NAVIGATION ---------- */
+
+.bottom-nav{
+
+position:fixed;
+
+bottom:0;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:100%;
+
+max-width:430px;
+
+height:78px;
+
+background:white;
+
+display:flex;
+
+justify-content:space-around;
+
+align-items:center;
+
+border-top-left-radius:26px;
+
+border-top-right-radius:26px;
+
+box-shadow:0 -8px 24px rgba(0,0,0,.08);
+
+z-index:998;
+
+}
+
+.nav{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+gap:5px;
+
+font-size:12px;
+
+color:#8A8A8A;
+
+cursor:pointer;
+
+transition:.3s;
+
+flex:1;
+
+}
+
+.nav i{
+
+font-size:20px;
+
+}
+
+.nav.active{
+
+color:var(--primary);
+
+font-weight:600;
+
+}
+
+.nav:hover{
+
+color:var(--primary);
+
+}
+
+.nav-space{
+
+width:90px;
+
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:480px){
+
+.offer{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:18px;
+
+}
+
+.offer button{
+
+width:100%;
+
+}
+
+.travel-card{
+
+min-width:100px;
+
+}
+
+}
+
+/* =====================================
+   PART 1.2D
+   Final Polish + Animation
+======================================*/
+
+/* ---------- SMOOTH ANIMATION ---------- */
+
+.header,
+.balance-card,
+.action,
+.service,
+.travel-card,
+.offer{
+
+animation:fadeUp .7s ease;
+
+}
+
+@keyframes fadeUp{
+
+0%{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* ---------- CARD TRANSITION ---------- */
+
+.balance-card,
+.action,
+.service,
+.travel-card,
+.offer{
+
+transition:
+transform .35s ease,
+box-shadow .35s ease,
+background .35s ease;
+
+}
+
+.balance-card:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 18px 35px rgba(0,0,0,.12);
+
+}
+
+/* ---------- ICON EFFECT ---------- */
+
+.icon,
+.service i,
+.travel-card i{
+
+transition:.35s;
+
+}
+
+.action:hover .icon{
+
+transform:rotate(-8deg) scale(1.08);
+
+}
+
+.service:hover i{
+
+transform:scale(1.15);
+
+}
+
+.travel-card:hover i{
+
+transform:rotate(8deg);
+
+}
+
+/* ---------- BUTTON EFFECT ---------- */
+
+button{
+
+transition:.3s;
+
+}
+
+button:active{
+
+transform:scale(.96);
+
+}
+
+/* ---------- INPUT ---------- */
+
+input,
+select{
+
+font-family:inherit;
+
+outline:none;
+
+}
+
+/* ---------- LINK ---------- */
+
+a:hover{
+
+opacity:.8;
+
+}
+
+/* ---------- SCROLLBAR ---------- */
+
+::-webkit-scrollbar{
+
+width:7px;
+
+height:7px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#edf2f7;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#14B85C;
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#0F9E4C;
+
+}
+
+/* ---------- SELECTION ---------- */
+
+::selection{
+
+background:#14B85C;
+
+color:white;
+
+}
+
+/* ---------- RIPPLE FEEL ---------- */
+
+.action,
+.service,
+.travel-card{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+/* ---------- FOCUS ---------- */
+
+button:focus-visible,
+a:focus-visible{
+
+outline:3px solid rgba(20,184,92,.35);
+
+outline-offset:3px;
+
+}
+
+/* ---------- QR GLOW ---------- */
+
+.qr{
+
+animation:qrPulse 2.5s infinite;
+
+}
+
+@keyframes qrPulse{
+
+0%{
+
+box-shadow:0 0 0 0 rgba(20,184,92,.35);
+
+}
+
+70%{
+
+box-shadow:0 0 0 18px rgba(20,184,92,0);
+
+}
+
+100%{
+
+box-shadow:0 0 0 0 rgba(20,184,92,0);
+
+}
+
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:430px){
+
+.app{
+
+width:100%;
+
+}
+
+.header{
+
+padding-left:18px;
+
+padding-right:18px;
+
+}
+
+.balance-card{
+
+left:15px;
+
+right:15px;
+
+}
+
+.content{
+
+padding:16px;
+
+}
+
+}
+
+/* ---------- LARGE MOBILE ---------- */
+
+@media(min-width:431px){
+
+body{
+
+display:flex;
+
+justify-content:center;
+
+background:#e9eef5;
+
+}
+
+.app{
+
+box-shadow:0 20px 60px rgba(0,0,0,.12);
+
+}
+
+}
+
+/* ---------- END ---------- */
+
+/* Insurance */
+
+.insurance-item{
+
+    transition:.3s;
+    cursor:pointer;
+
+}
+
+.insurance-item i{
+
+    color:#2ecc71;
+    font-size:26px;
+
+}
+
+.insurance-item:hover{
+
+    transform:translateY(-5px);
+    background:#eafaf1;
+
+}
+
+
+/* Financial Payments */
+
+.finance-item{
+
+    transition:.3s;
+    cursor:pointer;
+
+}
+
+.finance-item i{
+
+    color:#2ecc71;
+    font-size:26px;
+
+}
+
+.finance-item:hover{
+
+    transform:translateY(-5px);
+    background:#eef5ff;
+
+}
+
+/* ==========================================
+   PART 2.2
+   SEND MONEY PAGE
+==========================================*/
+
+/* ---------- PAGE HEADER ---------- */
+
+.page-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:20px;
+
+background:linear-gradient(135deg,#14B85C,#19CF67);
+
+color:#fff;
+
+border-bottom-left-radius:30px;
+
+border-bottom-right-radius:30px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.page-header h2{
+
+font-size:22px;
+
+font-weight:600;
+
+}
+
+.back-btn{
+
+width:42px;
+
+height:42px;
+
+border:none;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.15);
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.back-btn:hover{
+
+background:white;
+
+color:#14B85C;
+
+}
+
+/* ---------- CONTENT ---------- */
+
+.page-content{
+
+padding:20px;
+
+}
+
+/* ---------- SEARCH ---------- */
+
+.search-box{
+
+display:flex;
+
+align-items:center;
+
+background:white;
+
+padding:14px 16px;
+
+border-radius:16px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.05);
+
+margin-bottom:25px;
+
+}
+
+.search-box i{
+
+color:#888;
+
+font-size:16px;
+
+margin-right:12px;
+
+}
+
+.search-box input{
+
+flex:1;
+
+border:none;
+
+outline:none;
+
+font-size:15px;
+
+font-family:'Poppins',sans-serif;
+
+}
+
+/* ---------- SECTION TITLE ---------- */
+
+.section-heading{
+
+font-size:18px;
+
+font-weight:600;
+
+margin-bottom:15px;
+
+color:#222;
+
+}
+
+/* ---------- RECENT USERS ---------- */
+
+.recent-users{
+
+display:flex;
+
+gap:16px;
+
+overflow-x:auto;
+
+padding-bottom:8px;
+
+scrollbar-width:none;
+
+margin-bottom:30px;
+
+}
+
+.recent-users::-webkit-scrollbar{
+
+display:none;
+
+}
+
+.recent-user{
+
+min-width:78px;
+
+text-align:center;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.recent-user:hover{
+
+transform:translateY(-4px);
+
+}
+
+.recent-user img{
+
+width:70px;
+
+height:70px;
+
+border-radius:50%;
+
+border:3px solid #EAFBF1;
+
+margin:auto;
+
+margin-bottom:10px;
+
+}
+
+.recent-user p{
+
+font-size:13px;
+
+font-weight:500;
+
+}
+
+/* ---------- CONTACT LIST ---------- */
+
+.contact-list{
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.contact{
+
+display:flex;
+
+align-items:center;
+
+background:white;
+
+padding:15px;
+
+border-radius:18px;
+
+box-shadow:0 8px 18px rgba(0,0,0,.05);
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.contact:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 15px 30px rgba(20,184,92,.15);
+
+}
+
+.contact img{
+
+width:58px;
+
+height:58px;
+
+border-radius:50%;
+
+margin-right:15px;
+
+}
+
+.contact div{
+
+flex:1;
+
+}
+
+.contact h4{
+
+font-size:16px;
+
+font-weight:600;
+
+color:#222;
+
+margin-bottom:4px;
+
+}
+
+.contact span{
+
+font-size:13px;
+
+color:#777;
+
+}
+
+.contact i{
+
+font-size:18px;
+
+color:#14B85C;
+
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:480px){
+
+.page-content{
+
+padding:16px;
+
+}
+
+.contact{
+
+padding:14px;
+
+}
+
+.recent-user img{
+
+width:64px;
+
+height:64px;
+
+}
+
+}
+
+/* ==========================================
+   SEND MONEY MODAL
+========================================== */
+
+.send-modal{
+
+position:fixed;
+
+left:0;
+
+top:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.45);
+
+display:none;
+
+justify-content:center;
+
+align-items:flex-end;
+
+z-index:9999;
+
+}
+
+.modal-content{
+
+background:white;
+
+width:100%;
+
+max-width:430px;
+
+border-top-left-radius:28px;
+
+border-top-right-radius:28px;
+
+padding:25px;
+
+animation:modalUp .35s ease;
+
+}
+
+@keyframes modalUp{
+
+from{
+
+transform:translateY(100%);
+
+}
+
+to{
+
+transform:translateY(0);
+
+}
+
+}
+
+.modal-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:25px;
+
+}
+
+.modal-header h2{
+
+font-size:22px;
+
+}
+
+.modal-header button{
+
+background:none;
+
+font-size:22px;
+
+}
+
+.recipient-card{
+
+text-align:center;
+
+margin-bottom:25px;
+
+}
+
+.recipient-card img{
+
+width:80px;
+
+height:80px;
+
+border-radius:50%;
+
+margin:auto;
+
+margin-bottom:15px;
+
+}
+
+.recipient-card h3{
+
+margin-bottom:6px;
+
+}
+
+.recipient-card p{
+
+color:#777;
+
+}
+
+.input-group{
+
+margin-bottom:20px;
+
+}
+
+.input-group label{
+
+display:block;
+
+margin-bottom:8px;
+
+font-size:14px;
+
+font-weight:500;
+
+}
+
+.input-group input{
+
+width:100%;
+
+padding:15px;
+
+border:1px solid #ddd;
+
+border-radius:14px;
+
+font-size:15px;
+
+}
+
+#continueBtn{
+
+width:100%;
+
+padding:16px;
+
+background:#14B85C;
+
+color:white;
+
+font-size:16px;
+
+font-weight:600;
+
+border-radius:14px;
+
+transition:.3s;
+
+}
+
+#continueBtn:hover{
+
+background:#0F9E4C;
+
+}
+
+/* ============================
+   PIN & SUCCESS
+============================ */
+
+.pin-modal,
+.success-modal{
+
+position:fixed;
+
+left:0;
+top:0;
+
+width:100%;
+height:100%;
+
+display:none;
+
+justify-content:center;
+align-items:center;
+
+background:rgba(0,0,0,.45);
+
+z-index:99999;
+
+}
+
+.pin-card,
+.success-card{
+
+width:90%;
+max-width:360px;
+
+background:white;
+
+padding:30px;
+
+border-radius:24px;
+
+text-align:center;
+
+animation:popup .3s;
+
+}
+
+@keyframes popup{
+
+from{
+
+transform:scale(.8);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
+.success-icon,
+.check{
+
+width:80px;
+
+height:80px;
+
+margin:auto;
+
+margin-bottom:20px;
+
+background:#EAFBF1;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+font-size:34px;
+
+color:#14B85C;
+
+}
+
+.pin-card input{
+
+width:100%;
+
+padding:16px;
+
+margin:20px 0;
+
+font-size:26px;
+
+text-align:center;
+
+letter-spacing:8px;
+
+border-radius:14px;
+
+border:1px solid #ddd;
+
+}
+
+.pin-card button,
+.success-card button{
+
+width:100%;
+
+padding:15px;
+
+margin-top:15px;
+
+border-radius:14px;
+
+background:#14B85C;
+
+color:white;
+
+font-size:16px;
+
+font-weight:600;
+
+}
+
+#doneBtn{
+
+background:#444;
+
+}
+
+/* ==========================================
+   PART 3.2
+   STATEMENT PAGE
+==========================================*/
+
+/* ---------- HEADER ---------- */
+
+.statement-header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:22px;
+
+background:linear-gradient(135deg,#14B85C,#19CF67);
+
+color:#fff;
+
+border-bottom-left-radius:30px;
+border-bottom-right-radius:30px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.statement-header h2{
+
+font-size:22px;
+font-weight:600;
+
+}
+
+.filter-btn,
+.statement-header .back-btn{
+
+width:42px;
+height:42px;
+
+border:none;
+border-radius:50%;
+
+background:rgba(255,255,255,.18);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.filter-btn:hover,
+.statement-header .back-btn:hover{
+
+background:white;
+
+color:#14B85C;
+
+}
+
+/* ---------- SUMMARY ---------- */
+
+.summary-card{
+
+margin:20px;
+
+background:linear-gradient(135deg,#14B85C,#19CF67);
+
+border-radius:24px;
+
+padding:24px;
+
+display:flex;
+
+justify-content:space-between;
+
+color:white;
+
+box-shadow:0 15px 30px rgba(20,184,92,.20);
+
+}
+
+.summary-card p{
+
+font-size:14px;
+
+opacity:.9;
+
+margin-bottom:8px;
+
+}
+
+.summary-card h3{
+
+font-size:24px;
+
+font-weight:700;
+
+}
+
+/* ---------- SEARCH ---------- */
+
+.statement-search{
+
+margin:0 20px 25px;
+
+background:white;
+
+display:flex;
+
+align-items:center;
+
+padding:15px;
+
+border-radius:18px;
+
+box-shadow:0 8px 18px rgba(0,0,0,.05);
+
+}
+
+.statement-search i{
+
+margin-right:12px;
+
+color:#999;
+
+}
+
+.statement-search input{
+
+flex:1;
+
+border:none;
+
+outline:none;
+
+font-size:15px;
+
+font-family:'Poppins',sans-serif;
+
+}
+
+/* ---------- TITLE ---------- */
+
+.statement-title{
+
+margin:20px;
+
+margin-bottom:12px;
+
+font-size:18px;
+
+font-weight:600;
+
+color:#222;
+
+}
+
+/* ---------- LIST ---------- */
+
+.transaction-list{
+
+padding:0 20px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+/* ---------- CARD ---------- */
+
+.transaction{
+
+display:flex;
+
+align-items:center;
+
+background:white;
+
+padding:16px;
+
+border-radius:18px;
+
+box-shadow:0 8px 18px rgba(0,0,0,.05);
+
+transition:.3s;
+
+cursor:pointer;
+
+}
+
+.transaction:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 15px 28px rgba(20,184,92,.15);
+
+}
+
+/* ---------- ICON ---------- */
+
+.transaction .icon{
+
+width:55px;
+
+height:55px;
+
+border-radius:16px;
+
+background:#EAFBF1;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+margin-right:15px;
+
+color:#14B85C;
+
+font-size:22px;
+
+}
+
+.success .icon{
+
+background:#EAFBF1;
+
+color:#14B85C;
+
+}
+
+.receive .icon{
+
+background:#E8F4FF;
+
+color:#2196F3;
+
+}
+
+/* ---------- DETAILS ---------- */
+
+.details{
+
+flex:1;
+
+}
+
+.details h4{
+
+font-size:16px;
+
+font-weight:600;
+
+margin-bottom:4px;
+
+}
+
+.details p{
+
+font-size:13px;
+
+color:#888;
+
+}
+
+/* ---------- AMOUNT ---------- */
+
+.amount{
+
+font-size:17px;
+
+font-weight:700;
+
+color:#E53935;
+
+}
+
+.amount.positive{
+
+color:#14B85C;
+
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:480px){
+
+.summary-card{
+
+margin:16px;
+
+padding:20px;
+
+}
+
+.statement-search{
+
+margin:0 16px 20px;
+
+}
+
+.statement-title{
+
+margin:16px;
+
+}
+
+.transaction-list{
+
+padding:0 16px;
+
+}
+
+}
+
+/* ==========================================
+   PART 4.2
+   QR SCANNER PAGE
+==========================================*/
+
+/* ---------- SCANNER PAGE ---------- */
+
+.scanner-page{
+background:#0F172A;
+min-height:100vh;
+}
+
+/* ---------- HEADER ---------- */
+
+.scanner-header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:22px;
+
+background:linear-gradient(135deg,#14B85C,#19CF67);
+
+border-bottom-left-radius:28px;
+border-bottom-right-radius:28px;
+
+color:#fff;
+
+}
+
+.scanner-header h2{
+
+font-size:22px;
+font-weight:600;
+
+}
+
+.history-btn,
+.scanner-header .back-btn{
+
+width:45px;
+height:45px;
+
+border:none;
+border-radius:50%;
+
+background:rgba(255,255,255,.15);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+color:white;
+
+font-size:18px;
+
+transition:.3s;
+
+cursor:pointer;
+
+}
+
+.history-btn:hover,
+.scanner-header .back-btn:hover{
+
+background:white;
+color:#14B85C;
+
+}
+
+/* ---------- CAMERA ---------- */
+
+.scanner-section{
+
+padding:35px 20px;
+text-align:center;
+
+}
+
+.camera-box{
+
+width:320px;
+height:320px;
+
+margin:auto;
+
+background:#1E293B;
+
+border-radius:30px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+position:relative;
+
+overflow:hidden;
+
+box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+}
+
+/* Glow */
+
+.camera-box::before{
+
+content:"";
+
+position:absolute;
+
+width:420px;
+height:420px;
+
+background:radial-gradient(circle,
+rgba(20,184,92,.18),
+transparent 70%);
+
+}
+
+/* ---------- FRAME ---------- */
+
+.scanner-frame{
+
+width:230px;
+height:230px;
+
+border:4px solid #14B85C;
+
+border-radius:26px;
+
+position:relative;
+
+box-shadow:0 0 25px rgba(20,184,92,.45);
+
+}
+
+/* Scanner Corners */
+
+.scanner-frame::before{
+
+content:"";
+
+position:absolute;
+
+top:-4px;
+left:-4px;
+
+width:45px;
+height:45px;
+
+border-top:6px solid #14B85C;
+border-left:6px solid #14B85C;
+
+border-radius:18px;
+
+}
+
+.scanner-frame::after{
+
+content:"";
+
+position:absolute;
+
+right:-4px;
+bottom:-4px;
+
+width:45px;
+height:45px;
+
+border-right:6px solid #14B85C;
+border-bottom:6px solid #14B85C;
+
+border-radius:18px;
+
+}
+
+/* ---------- SCAN LINE ---------- */
+
+.scan-line{
+
+position:absolute;
+
+left:0;
+top:0;
+
+width:100%;
+height:4px;
+
+background:#00FF95;
+
+box-shadow:0 0 20px #00FF95;
+
+animation:scannerMove 2.5s linear infinite;
+
+}
+
+@keyframes scannerMove{
+
+0%{
+
+top:0;
+
+}
+
+50%{
+
+top:222px;
+
+}
+
+100%{
+
+top:0;
+
+}
+
+}
+
+/* ---------- TEXT ---------- */
+
+.scanner-text{
+
+margin-top:28px;
+
+font-size:15px;
+
+color:#CBD5E1;
+
+}
+
+/* ---------- ACTION BUTTON ---------- */
+
+.scanner-actions{
+
+display:flex;
+
+justify-content:center;
+
+gap:18px;
+
+margin-top:10px;
+
+}
+
+.scanner-actions button{
+
+width:150px;
+
+padding:15px;
+
+border:none;
+
+border-radius:16px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(12px);
+
+border:1px solid rgba(255,255,255,.08);
+
+color:white;
+
+font-size:15px;
+
+transition:.3s;
+
+cursor:pointer;
+
+}
+
+.scanner-actions button:hover{
+
+background:#14B85C;
+
+transform:translateY(-3px);
+
+}
+
+.scanner-actions i{
+
+margin-right:8px;
+
+}
+
+/* ---------- MERCHANT ---------- */
+
+.merchant-card{
+
+margin:35px 20px;
+
+background:white;
+
+border-radius:22px;
+
+padding:18px;
+
+display:flex;
+
+align-items:center;
+
+gap:16px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.merchant-avatar{
+
+width:65px;
+height:65px;
+
+border-radius:50%;
+
+background:#EAFBF1;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+font-size:28px;
+
+color:#14B85C;
+
+}
+
+.merchant-card h3{
+
+font-size:18px;
+
+margin-bottom:5px;
+
+color:#222;
+
+}
+
+.merchant-card p{
+
+font-size:14px;
+
+color:#777;
+
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:480px){
+
+.camera-box{
+
+width:290px;
+height:290px;
+
+}
+
+.scanner-frame{
+
+width:205px;
+height:205px;
+
+}
+
+@keyframes scannerMove{
+
+0%{top:0;}
+
+50%{top:198px;}
+
+100%{top:0;}
+
+}
+
+.scanner-actions{
+
+flex-direction:column;
+
+padding:0 20px;
+
+}
+
+.scanner-actions button{
+
+width:100%;
+
+}
+
+}
+
+#reader{
+    width:100%;
+    height:100%;
+    border-radius:24px;
+    overflow:hidden;
+}
+
+/* ==========================================
+   PART 4.4B
+   PAYMENT BOTTOM SHEET
+========================================== */
+
+.payment-sheet{
+
+position:fixed;
+
+left:0;
+right:0;
+bottom:-100%;
+
+width:100%;
+height:auto;
+
+display:flex;
+justify-content:center;
+
+background:rgba(0,0,0,.45);
+
+backdrop-filter:blur(8px);
+
+transition:.45s ease;
+
+z-index:99999;
+
+padding:20px;
+
+}
+
+.payment-sheet.active{
+
+bottom:0;
+
+}
+
+.sheet-content{
+
+width:100%;
+max-width:430px;
+
+background:#ffffff;
+
+border-radius:30px 30px 0 0;
+
+padding:25px;
+
+box-shadow:0 -10px 35px rgba(0,0,0,.20);
+
+animation:sheetUp .35s ease;
+
+}
+
+@keyframes sheetUp{
+
+from{
+
+transform:translateY(80px);
+
+opacity:0;
+
+}
+
+to{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+}
+
+/* ========================= */
+
+.sheet-bar{
+
+width:60px;
+height:6px;
+
+background:#d9d9d9;
+
+border-radius:50px;
+
+margin:0 auto 25px;
+
+}
+
+/* ========================= */
+
+.merchant-profile{
+
+display:flex;
+
+align-items:center;
+
+gap:16px;
+
+padding:18px;
+
+background:#F6FFF9;
+
+border-radius:20px;
+
+margin-bottom:25px;
+
+}
+
+.merchant-icon{
+
+width:65px;
+height:65px;
+
+border-radius:50%;
+
+background:linear-gradient(135deg,#14B85C,#19CF67);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+color:white;
+
+font-size:28px;
+
+box-shadow:0 8px 20px rgba(20,184,92,.30);
+
+}
+
+.merchant-profile h2{
+
+font-size:19px;
+
+font-weight:600;
+
+margin-bottom:5px;
+
+}
+
+.merchant-profile p{
+
+font-size:13px;
+
+color:#777;
+
+}
+
+/* ========================= */
+
+.payment-form{
+
+display:flex;
+
+flex-direction:column;
+
+gap:16px;
+
+}
+
+.payment-form label{
+
+font-size:14px;
+
+font-weight:600;
+
+color:#444;
+
+}
+
+.payment-form input{
+
+padding:15px;
+
+border:2px solid #E6E6E6;
+
+border-radius:16px;
+
+font-size:15px;
+
+font-family:Poppins,sans-serif;
+
+outline:none;
+
+transition:.3s;
+
+}
+
+.payment-form input:focus{
+
+border-color:#14B85C;
+
+box-shadow:0 0 0 4px rgba(20,184,92,.12);
+
+}
+
+/* ========================= */
+
+.payment-summary{
+
+margin:25px 0;
+
+background:#F8FAFC;
+
+border-radius:18px;
+
+padding:18px;
+
+}
+
+.payment-summary div{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:12px;
+
+}
+
+.payment-summary div:last-child{
+
+margin-bottom:0;
+
+padding-top:12px;
+
+border-top:1px solid #E5E7EB;
+
+}
+
+.payment-summary span{
+
+color:#666;
+
+font-size:14px;
+
+}
+
+.payment-summary strong{
+
+font-size:17px;
+
+color:#111827;
+
+}
+
+/* ========================= */
+
+#payNow{
+
+width:100%;
+
+padding:16px;
+
+border:none;
+
+border-radius:18px;
+
+background:linear-gradient(135deg,#14B85C,#19CF67);
+
+color:white;
+
+font-size:17px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+box-shadow:0 12px 25px rgba(20,184,92,.25);
+
+}
+
+#payNow:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 18px 35px rgba(20,184,92,.35);
+
+}
+
+#payNow:active{
+
+transform:scale(.98);
+
+}
+
+/* ========================= */
+
+@media(max-width:480px){
+
+.sheet-content{
+
+padding:22px;
+
+}
+
+.merchant-icon{
+
+width:58px;
+height:58px;
+
+font-size:24px;
+
+}
+
+.payment-form input{
+
+padding:14px;
+
+}
+
+#payNow{
+
+padding:15px;
+
+}
+
+}
+
+/* ==========================================
+   PART 4.4D
+========================================== */
+
+.pin-icon,
+.success-circle{
+
+width:90px;
+
+height:90px;
+
+margin:auto;
+
+border-radius:50%;
+
+background:#EAFBF1;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:40px;
+
+color:#14B85C;
+
+margin-bottom:20px;
+
+}
+
+.bio-buttons{
+
+display:flex;
+
+gap:12px;
+
+margin:20px 0;
+
+}
+
+.bio-buttons button{
+
+flex:1;
+
+padding:14px;
+
+border:none;
+
+border-radius:14px;
+
+background:#F2F4F7;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.bio-buttons button:hover{
+
+background:#14B85C;
+
+color:white;
+
+}
+
+.receipt-card{
+
+margin:25px 0;
+
+padding:18px;
+
+background:#F8FAFC;
+
+border-radius:18px;
+
+}
+
+.receipt-card div{
+
+display:flex;
+
+justify-content:space-between;
+
+padding:10px 0;
+
+border-bottom:1px solid #EEE;
+
+}
+
+.receipt-card div:last-child{
+
+border:none;
+
+}
+
+.receipt-buttons{
+
+display:flex;
+
+gap:15px;
+
+margin-bottom:20px;
+
+}
+
+.receipt-buttons button{
+
+flex:1;
+
+padding:14px;
+
+border:none;
+
+border-radius:14px;
+
+background:#14B85C;
+
+color:white;
+
+font-weight:600;
+
+cursor:pointer;
+
+}
+
+#finishPayment{
+
+width:100%;
+
+padding:16px;
+
+border:none;
+
+border-radius:16px;
+
+background:#222;
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+}
+
+/* =====================================
+   PART 4.4E
+===================================== */
+
+#successAnimation{
+
+width:90px;
+
+height:90px;
+
+margin:auto;
+
+}
+
+.payment-sheet{
+
+backdrop-filter:blur(12px);
+
+}
+
+.receipt-card{
+
+animation:fadeIn .4s;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* ==========================================
+   PART 5.2
+   SUPPORT CENTER
+========================================== */
+
+/* ---------- HEADER ---------- */
+
+.support-header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:22px;
+
+background:linear-gradient(135deg,#14B85C,#19CF67);
+
+color:#fff;
+
+border-bottom-left-radius:30px;
+border-bottom-right-radius:30px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.support-header h2{
+
+font-size:22px;
+font-weight:600;
+
+}
+
+.support-header button{
+
+width:45px;
+height:45px;
+
+border:none;
+border-radius:50%;
+
+background:rgba(255,255,255,.15);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+color:#fff;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.support-header button:hover{
+
+background:#fff;
+color:#14B85C;
+
+}
+
+/* ---------- BANNER ---------- */
+
+.support-banner{
+
+margin:22px;
+
+padding:28px;
+
+border-radius:24px;
+
+background:linear-gradient(135deg,#14B85C,#19CF67);
+
+color:#fff;
+
+text-align:center;
+
+box-shadow:0 15px 30px rgba(20,184,92,.20);
+
+}
+
+.support-banner h2{
+
+font-size:24px;
+
+margin-bottom:8px;
+
+}
+
+.support-banner p{
+
+opacity:.95;
+
+font-size:15px;
+
+}
+
+/* ---------- GRID ---------- */
+
+.support-grid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:18px;
+
+padding:0 22px;
+
+margin-bottom:30px;
+
+}
+
+/* ---------- CARD ---------- */
+
+.support-card{
+
+background:#fff;
+
+border-radius:22px;
+
+padding:25px 20px;
+
+text-align:center;
+
+box-shadow:0 8px 18px rgba(0,0,0,.05);
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.support-card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 18px 35px rgba(20,184,92,.18);
+
+}
+
+.support-card i{
+
+width:70px;
+height:70px;
+
+border-radius:50%;
+
+background:#EAFBF1;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+margin:auto;
+
+margin-bottom:16px;
+
+font-size:30px;
+
+color:#14B85C;
+
+}
+
+.support-card h3{
+
+font-size:18px;
+
+margin-bottom:8px;
+
+color:#222;
+
+}
+
+.support-card p{
+
+font-size:13px;
+
+color:#777;
+
+line-height:1.5;
+
+}
+
+/* ---------- TITLE ---------- */
+
+.section-title{
+
+padding:0 22px;
+
+margin-bottom:15px;
+
+font-size:19px;
+
+font-weight:600;
+
+color:#222;
+
+}
+
+/* ---------- HELP LIST ---------- */
+
+.help-list{
+
+padding:0 22px 30px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+/* ---------- ITEM ---------- */
+
+.help-item{
+
+display:flex;
+
+align-items:center;
+
+background:#fff;
+
+padding:18px;
+
+border-radius:18px;
+
+box-shadow:0 8px 18px rgba(0,0,0,.05);
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.help-item:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 15px 28px rgba(20,184,92,.15);
+
+}
+
+.help-item i:first-child{
+
+width:48px;
+height:48px;
+
+border-radius:14px;
+
+background:#EAFBF1;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+margin-right:16px;
+
+font-size:20px;
+
+color:#14B85C;
+
+}
+
+.help-item span{
+
+flex:1;
+
+font-size:16px;
+
+font-weight:500;
+
+color:#333;
+
+}
+
+.help-item i:last-child{
+
+font-size:18px;
+
+color:#14B85C;
+
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:480px){
+
+.support-grid{
+
+grid-template-columns:1fr;
+
+padding:0 16px;
+
+}
+
+.support-banner{
+
+margin:16px;
+
+padding:24px;
+
+}
+
+.section-title{
+
+padding:0 16px;
+
+}
+
+.help-list{
+
+padding:0 16px 25px;
+
+}
+
+}
+
+/* ==========================================
+   PART 6.2
+   MORE PAGE
+========================================== */
+
+/* ---------- HEADER ---------- */
+
+.more-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:22px;
+background:linear-gradient(135deg,#14B85C,#19CF67);
+color:#fff;
+border-bottom-left-radius:30px;
+border-bottom-right-radius:30px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.more-header h2{
+font-size:22px;
+font-weight:600;
+}
+
+.more-header button{
+width:45px;
+height:45px;
+border:none;
+border-radius:50%;
+background:rgba(255,255,255,.15);
+display:flex;
+justify-content:center;
+align-items:center;
+color:#fff;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+}
+
+.more-header button:hover{
+background:#fff;
+color:#14B85C;
+}
+
+/* ---------- PROFILE ---------- */
+
+.profile-card{
+
+margin:22px;
+
+background:linear-gradient(135deg,#14B85C,#19CF67);
+
+border-radius:24px;
+
+padding:25px;
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+color:white;
+
+box-shadow:0 15px 35px rgba(20,184,92,.25);
+
+}
+
+.profile-card img{
+
+width:85px;
+
+height:85px;
+
+border-radius:50%;
+
+border:4px solid rgba(255,255,255,.3);
+
+object-fit:cover;
+
+}
+
+.profile-card h2{
+
+font-size:22px;
+
+margin-bottom:8px;
+
+}
+
+.profile-card p{
+
+font-size:14px;
+
+opacity:.95;
+
+margin-bottom:4px;
+
+}
+
+/* ---------- MENU ---------- */
+
+.menu-list{
+
+padding:0 22px 30px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+/* ---------- ITEM ---------- */
+
+.menu-item{
+
+display:flex;
+
+align-items:center;
+
+background:#fff;
+
+padding:18px;
+
+border-radius:18px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.05);
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.menu-item:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 15px 30px rgba(20,184,92,.15);
+
+}
+
+.menu-item i:first-child{
+
+width:50px;
+
+height:50px;
+
+border-radius:15px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:#EAFBF1;
+
+color:#14B85C;
+
+font-size:20px;
+
+margin-right:16px;
+
+}
+
+.menu-item span{
+
+flex:1;
+
+font-size:16px;
+
+font-weight:500;
+
+color:#333;
+
+}
+
+.menu-item i:last-child{
+
+color:#14B85C;
+
+font-size:18px;
+
+}
+
+/* ---------- LOGOUT ---------- */
+
+.logout{
+
+background:#FFF5F5;
+
+}
+
+.logout i:first-child{
+
+background:#FFE5E5;
+
+color:#E53935;
+
+}
+
+.logout span{
+
+color:#E53935;
+
+font-weight:600;
+
+}
+
+/* ---------- SWITCH ---------- */
+
+.switch{
+
+position:relative;
+
+display:inline-block;
+
+width:52px;
+
+height:28px;
+
+}
+
+.switch input{
+
+display:none;
+
+}
+
+.slider{
+
+position:absolute;
+
+left:0;
+top:0;
+right:0;
+bottom:0;
+
+background:#CCC;
+
+border-radius:30px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.slider:before{
+
+content:"";
+
+position:absolute;
+
+width:22px;
+
+height:22px;
+
+left:3px;
+
+top:3px;
+
+background:white;
+
+border-radius:50%;
+
+transition:.3s;
+
+}
+
+.switch input:checked + .slider{
+
+background:#14B85C;
+
+}
+
+.switch input:checked + .slider:before{
+
+transform:translateX(24px);
+
+}
+
+/* ---------- DARK MODE ---------- */
+
+body.dark{
+
+background:#0F172A;
+
+color:white;
+
+}
+
+body.dark .menu-item{
+
+background:#1E293B;
+
+}
+
+body.dark .menu-item span{
+
+color:white;
+
+}
+
+body.dark .profile-card{
+
+background:linear-gradient(135deg,#0F9E4C,#14B85C);
+
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:480px){
+
+.profile-card{
+
+margin:16px;
+
+padding:20px;
+
+}
+
+.profile-card img{
+
+width:72px;
+
+height:72px;
+
+}
+
+.menu-list{
+
+padding:0 16px 25px;
+
+}
+
+.menu-item{
+
+padding:16px;
+
+}
+
+}
+
+/* ==========================================
+   PART 7.2
+   LOGIN / AUTHENTICATION
+========================================== */
+
+/* ---------- PAGE ---------- */
+
+body{
+margin:0;
+padding:0;
+font-family:'Poppins',sans-serif;
+background:#F4F7FB;
+}
+
+.login-container{
+
+min-height:100vh;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+
+padding:30px 22px;
+
+background:linear-gradient(135deg,#14B85C,#19CF67);
+
+}
+
+/* ---------- HEADER ---------- */
+
+.login-header{
+
+text-align:center;
+
+margin-bottom:35px;
+
+color:#fff;
+
+}
+
+.logo-circle{
+
+width:90px;
+height:90px;
+
+margin:auto;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.18);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+backdrop-filter:blur(12px);
+
+font-size:40px;
+
+margin-bottom:18px;
+
+}
+
+.login-header h1{
+
+margin:0;
+
+font-size:34px;
+
+font-weight:700;
+
+}
+
+.login-header p{
+
+margin-top:8px;
+
+font-size:15px;
+
+opacity:.95;
+
+}
+
+/* ---------- FORM ---------- */
+
+#loginForm{
+
+background:#fff;
+
+border-radius:28px;
+
+padding:28px;
+
+box-shadow:0 18px 40px rgba(0,0,0,.15);
+
+animation:fadeUp .5s ease;
+
+}
+
+/* ---------- INPUT ---------- */
+
+.input-group{
+
+margin-bottom:22px;
+
+}
+
+.input-group label{
+
+display:block;
+
+font-size:14px;
+
+font-weight:600;
+
+margin-bottom:10px;
+
+color:#444;
+
+}
+
+.input-box{
+
+display:flex;
+
+align-items:center;
+
+background:#F8FAFC;
+
+border:2px solid #E8EDF3;
+
+border-radius:16px;
+
+padding:0 16px;
+
+transition:.3s;
+
+}
+
+.input-box:focus-within{
+
+border-color:#14B85C;
+
+box-shadow:0 0 0 4px rgba(20,184,92,.12);
+
+}
+
+.input-box i{
+
+font-size:18px;
+
+color:#14B85C;
+
+}
+
+.input-box input{
+
+flex:1;
+
+border:none;
+
+outline:none;
+
+background:transparent;
+
+padding:15px 12px;
+
+font-size:15px;
+
+font-family:'Poppins',sans-serif;
+
+}
+
+.togglePassword{
+
+cursor:pointer;
+
+}
+
+/* ---------- OPTIONS ---------- */
+
+.login-options{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:24px;
+
+font-size:14px;
+
+}
+
+.login-options a{
+
+text-decoration:none;
+
+color:#14B85C;
+
+font-weight:600;
+
+}
+
+/* ---------- LOGIN BUTTON ---------- */
+
+.login-btn{
+
+width:100%;
+
+padding:16px;
+
+border:none;
+
+border-radius:18px;
+
+background:linear-gradient(135deg,#14B85C,#19CF67);
+
+color:#fff;
+
+font-size:17px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+box-shadow:0 12px 28px rgba(20,184,92,.25);
+
+}
+
+.login-btn:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 18px 36px rgba(20,184,92,.35);
+
+}
+
+/* ---------- BIOMETRIC ---------- */
+
+.biometric-login{
+
+display:flex;
+
+gap:15px;
+
+margin-top:24px;
+
+}
+
+.biometric-login button{
+
+flex:1;
+
+padding:14px;
+
+border:none;
+
+border-radius:16px;
+
+background:#F1F5F9;
+
+cursor:pointer;
+
+font-size:15px;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.biometric-login button:hover{
+
+background:#14B85C;
+
+color:#fff;
+
+}
+
+/* ---------- REGISTER ---------- */
+
+.register-text{
+
+margin-top:28px;
+
+text-align:center;
+
+font-size:15px;
+
+}
+
+.register-text a{
+
+text-decoration:none;
+
+color:#14B85C;
+
+font-weight:600;
+
+}
+
+/* ---------- ANIMATION ---------- */
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(35px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:480px){
+
+.login-container{
+
+padding:20px;
+
+}
+
+.logo-circle{
+
+width:75px;
+height:75px;
+
+font-size:34px;
+
+}
+
+.login-header h1{
+
+font-size:28px;
+
+}
+
+#loginForm{
+
+padding:22px;
+
+}
+
+.biometric-login{
+
+flex-direction:column;
+
+}
+
+}
+
+/* ==========================================
+   PART 7.5
+   OTP PAGE
+========================================== */
+
+.otp-container{
+
+display:flex;
+
+justify-content:center;
+
+gap:12px;
+
+margin:30px 0;
+
+}
+
+.otp-box{
+
+width:52px;
+
+height:60px;
+
+border:2px solid #E5E7EB;
+
+border-radius:14px;
+
+font-size:24px;
+
+font-weight:600;
+
+text-align:center;
+
+outline:none;
+
+transition:.3s;
+
+}
+
+.otp-box:focus{
+
+border-color:#14B85C;
+
+box-shadow:0 0 0 4px rgba(20,184,92,.15);
+
+}
+
+.timer{
+
+text-align:center;
+
+margin-bottom:10px;
+
+font-size:15px;
+
+}
+
+.timer span{
+
+color:#14B85C;
+
+font-weight:bold;
+
+}
+
+.resend{
+
+text-align:center;
+
+margin-bottom:25px;
+
+}
+
+.resend a{
+
+text-decoration:none;
+
+font-weight:600;
+
+color:#14B85C;
+
+}
+
+@media(max-width:480px){
+
+.otp-box{
+
+width:45px;
+
+height:55px;
+
+}
+
+}
+
+/* ==========================================
+   PART 8.2
+   BANK LINKING
+========================================== */
+
+/* ---------- HEADER ---------- */
+
+.bank-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:22px;
+background:linear-gradient(135deg,#14B85C,#19CF67);
+color:#fff;
+border-bottom-left-radius:28px;
+border-bottom-right-radius:28px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.bank-header h2{
+font-size:22px;
+font-weight:600;
+margin:0;
+}
+
+.bank-header button{
+width:46px;
+height:46px;
+border:none;
+border-radius:50%;
+background:rgba(255,255,255,.18);
+color:#fff;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.bank-header button:hover{
+background:#fff;
+color:#14B85C;
+}
+
+/* ---------- SEARCH ---------- */
+
+.bank-search{
+margin:22px;
+display:flex;
+align-items:center;
+background:#fff;
+padding:14px 18px;
+border-radius:18px;
+box-shadow:0 8px 20px rgba(0,0,0,.05);
+}
+
+.bank-search i{
+color:#14B85C;
+font-size:18px;
+margin-right:12px;
+}
+
+.bank-search input{
+flex:1;
+border:none;
+outline:none;
+background:transparent;
+font-size:15px;
+font-family:'Poppins',sans-serif;
+}
+
+/* ---------- LIST ---------- */
+
+.bank-list{
+padding:0 22px 120px;
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+/* ---------- CARD ---------- */
+
+.bank-card{
+display:flex;
+align-items:center;
+background:#fff;
+padding:18px;
+border-radius:20px;
+box-shadow:0 10px 24px rgba(0,0,0,.05);
+transition:.3s;
+cursor:pointer;
+}
+
+.bank-card:hover{
+transform:translateY(-4px);
+box-shadow:0 18px 32px rgba(20,184,92,.15);
+}
+
+.bank-icon{
+width:60px;
+height:60px;
+border-radius:18px;
+background:#EAFBF1;
+display:flex;
+justify-content:center;
+align-items:center;
+margin-right:16px;
+}
+
+.bank-icon i{
+font-size:24px;
+color:#14B85C;
+}
+
+.bank-info{
+flex:1;
+}
+
+.bank-info h3{
+margin:0;
+font-size:17px;
+font-weight:600;
+color:#222;
+}
+
+.bank-info p{
+margin-top:6px;
+font-size:14px;
+color:#777;
+}
+
+.verified{
+background:#EAFBF1;
+color:#14B85C;
+padding:8px 14px;
+border-radius:30px;
+font-size:13px;
+font-weight:600;
+}
+
+/* ---------- LOAD MONEY BUTTON ---------- */
+
+.load-money-btn{
+position:fixed;
+left:20px;
+right:20px;
+bottom:25px;
+
+padding:17px;
+
+border:none;
+border-radius:18px;
+
+background:linear-gradient(135deg,#14B85C,#19CF67);
+
+color:#fff;
+
+font-size:17px;
+font-weight:600;
+
+cursor:pointer;
+
+box-shadow:0 15px 35px rgba(20,184,92,.30);
+
+transition:.3s;
+}
+
+.load-money-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 22px 42px rgba(20,184,92,.40);
+}
+
+/* ---------- DARK MODE ---------- */
+
+body.dark .bank-search,
+body.dark .bank-card{
+
+background:#1E293B;
+
+}
+
+body.dark .bank-info h3{
+
+color:#fff;
+
+}
+
+body.dark .bank-info p{
+
+color:#CBD5E1;
+
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:480px){
+
+.bank-header{
+
+padding:18px;
+
+}
+
+.bank-search{
+
+margin:16px;
+
+}
+
+.bank-list{
+
+padding:0 16px 110px;
+
+}
+
+.bank-card{
+
+padding:15px;
+
+}
+
+.bank-icon{
+
+width:52px;
+height:52px;
+
+}
+
+.bank-icon i{
+
+font-size:20px;
+
+}
+
+.bank-info h3{
+
+font-size:15px;
+
+}
+
+.bank-info p{
+
+font-size:13px;
+
+}
+
+.load-money-btn{
+
+left:16px;
+right:16px;
+bottom:18px;
+
+}
+
+}
+
+/* ==========================================
+   PART 8.4
+   BANK MODAL
+========================================== */
+
+.modal-overlay{
+
+position:fixed;
+
+left:0;
+top:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.45);
+
+display:none;
+
+justify-content:center;
+align-items:center;
+
+padding:20px;
+
+z-index:999;
+
+}
+
+.modal-overlay.active{
+
+display:flex;
+
+animation:fadeModal .25s;
+
+}
+
+.bank-modal{
+
+background:#fff;
+
+width:100%;
+
+max-width:420px;
+
+border-radius:26px;
+
+padding:24px;
+
+animation:popup .25s;
+
+}
+
+.modal-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:20px;
+
+}
+
+.modal-header h2{
+
+font-size:22px;
+
+}
+
+.modal-header button{
+
+border:none;
+
+background:#F1F5F9;
+
+width:42px;
+
+height:42px;
+
+border-radius:50%;
+
+cursor:pointer;
+
+}
+
+.bank-modal select,
+.bank-modal input{
+
+width:100%;
+
+padding:15px;
+
+margin-top:8px;
+
+margin-bottom:18px;
+
+border:2px solid #E5E7EB;
+
+border-radius:14px;
+
+font-size:15px;
+
+outline:none;
+
+font-family:Poppins,sans-serif;
+
+}
+
+.bank-modal input:focus,
+.bank-modal select:focus{
+
+border-color:#14B85C;
+
+}
+
+@keyframes popup{
+
+from{
+
+transform:scale(.9);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
+@keyframes fadeModal{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+/* ==========================================
+   PART 8.5
+   BANK OTP
+========================================== */
+
+.otp-info{
+
+text-align:center;
+
+margin:15px 0 25px;
+
+font-size:14px;
+
+color:#666;
+
+}
+
+.bank-otp{
+
+width:50px;
+
+height:55px;
+
+text-align:center;
+
+font-size:22px;
+
+border:2px solid #E5E7EB;
+
+border-radius:12px;
+
+outline:none;
+
+transition:.3s;
+
+}
+
+.bank-otp:focus{
+
+border-color:#14B85C;
+
+box-shadow:0 0 0 4px rgba(20,184,92,.12);
+
+}
+
+.loading-overlay{
+
+position:fixed;
+
+left:0;
+top:0;
+
+width:100%;
+height:100%;
+
+background:rgba(255,255,255,.9);
+
+display:none;
+
+justify-content:center;
+align-items:center;
+
+flex-direction:column;
+
+z-index:1000;
+
+}
+
+.loading-overlay.active{
+
+display:flex;
+
+}
+
+.loader{
+
+width:70px;
+
+height:70px;
+
+border:7px solid #E5E7EB;
+
+border-top:7px solid #14B85C;
+
+border-radius:50%;
+
+animation:spin 1s linear infinite;
+
+}
+
+.loading-text{
+
+margin-top:20px;
+
+font-size:17px;
+
+font-weight:600;
+
+color:#14B85C;
+
+}
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+}
+
+/* ==========================================
+PART 8.7
+LOAD SUCCESS
+========================================== */
+
+.success-page{
+
+padding:30px;
+
+min-height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+background:#F7FAFC;
+
+}
+
+.success-icon{
+
+font-size:90px;
+
+color:#14B85C;
+
+margin-bottom:20px;
+
+animation:pop .5s ease;
+
+}
+
+.success-page h1{
+
+margin-bottom:8px;
+
+}
+
+.success-page p{
+
+color:#666;
+
+margin-bottom:25px;
+
+}
+
+.receipt-card{
+
+width:100%;
+
+max-width:420px;
+
+background:#fff;
+
+padding:22px;
+
+border-radius:20px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+margin-bottom:25px;
+
+}
+
+.receipt-row{
+
+display:flex;
+
+justify-content:space-between;
+
+padding:14px 0;
+
+border-bottom:1px solid #eee;
+
+}
+
+.receipt-row:last-child{
+
+border-bottom:none;
+
+}
+
+.outline-btn{
+
+width:100%;
+
+padding:15px;
+
+margin-top:15px;
+
+border:2px solid #14B85C;
+
+background:white;
+
+color:#14B85C;
+
+font-size:16px;
+
+border-radius:16px;
+
+cursor:pointer;
+
+}
+
+.home-btn{
+
+width:100%;
+
+padding:15px;
+
+margin-top:15px;
+
+border:none;
+
+background:#222;
+
+color:white;
+
+font-size:16px;
+
+border-radius:16px;
+
+cursor:pointer;
+
+}
+
+@keyframes pop{
+
+0%{
+
+transform:scale(.3);
+
+opacity:0;
+
+}
+
+100%{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}

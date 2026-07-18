@@ -1,0 +1,716 @@
+/* ==========================================
+   NEPPAY WALLET
+   PROFILE & SETTINGS
+   PART 11.2
+========================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:#F5F7FB;
+
+color:#222;
+
+}
+
+.profile-page{
+
+max-width:430px;
+
+margin:auto;
+
+min-height:100vh;
+
+padding:20px;
+
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.profile-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:25px;
+
+}
+
+.profile-header h2{
+
+font-size:24px;
+
+font-weight:700;
+
+color:#111827;
+
+}
+
+.profile-header button{
+
+width:46px;
+
+height:46px;
+
+border:none;
+
+border-radius:50%;
+
+background:#fff;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+cursor:pointer;
+
+font-size:18px;
+
+color:#16A34A;
+
+transition:.3s;
+
+}
+
+.profile-header button:hover{
+
+background:#16A34A;
+
+color:#fff;
+
+transform:scale(1.05);
+
+}
+
+/* ==========================
+   PROFILE CARD
+========================== */
+
+.profile-card{
+
+background:linear-gradient(135deg,#16A34A,#22C55E);
+
+border-radius:28px;
+
+padding:35px 25px;
+
+text-align:center;
+
+color:white;
+
+box-shadow:0 18px 35px rgba(22,163,74,.25);
+
+margin-bottom:25px;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.profile-card::before{
+
+content:"";
+
+position:absolute;
+
+top:-60px;
+
+right:-60px;
+
+width:180px;
+
+height:180px;
+
+background:rgba(255,255,255,.08);
+
+border-radius:50%;
+
+}
+
+.profile-card::after{
+
+content:"";
+
+position:absolute;
+
+bottom:-70px;
+
+left:-70px;
+
+width:160px;
+
+height:160px;
+
+background:rgba(255,255,255,.05);
+
+border-radius:50%;
+
+}
+
+/* ==========================
+   PROFILE IMAGE
+========================== */
+
+.profile-image{
+
+width:120px;
+
+height:120px;
+
+margin:auto;
+
+position:relative;
+
+margin-bottom:18px;
+
+}
+
+.profile-image img{
+
+width:100%;
+
+height:100%;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:5px solid rgba(255,255,255,.9);
+
+}
+
+.camera-icon{
+
+position:absolute;
+
+right:0;
+
+bottom:0;
+
+width:38px;
+
+height:38px;
+
+background:white;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+color:#16A34A;
+
+font-size:16px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+
+cursor:pointer;
+
+}
+
+.profile-card h2{
+
+font-size:24px;
+
+margin-bottom:8px;
+
+}
+
+.profile-card p{
+
+opacity:.9;
+
+font-size:15px;
+
+margin-bottom:14px;
+
+}
+
+.verified{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:8px;
+
+padding:8px 16px;
+
+background:rgba(255,255,255,.15);
+
+border-radius:25px;
+
+font-size:14px;
+
+font-weight:500;
+
+}
+
+/* ==========================
+   INFO CARD
+========================== */
+
+.info-card{
+
+background:#fff;
+
+border-radius:22px;
+
+padding:22px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+margin-bottom:22px;
+
+}
+
+.info-row{
+
+display:flex;
+
+align-items:flex-start;
+
+gap:15px;
+
+padding:16px 0;
+
+border-bottom:1px solid #EEF2F7;
+
+}
+
+.info-row:last-child{
+
+border-bottom:none;
+
+}
+
+.info-row i{
+
+width:45px;
+
+height:45px;
+
+background:#ECFDF5;
+
+color:#16A34A;
+
+border-radius:14px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:18px;
+
+}
+
+.info-row label{
+
+display:block;
+
+font-size:13px;
+
+color:#6B7280;
+
+margin-bottom:5px;
+
+}
+
+.info-row p{
+
+font-size:15px;
+
+font-weight:500;
+
+color:#111827;
+
+}
+
+/* ==========================
+   SETTINGS
+========================== */
+
+.settings-card{
+
+background:#fff;
+
+border-radius:22px;
+
+padding:22px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+}
+
+.settings-card h3{
+
+margin-bottom:20px;
+
+font-size:20px;
+
+}
+
+.setting-item{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:16px 0;
+
+border-bottom:1px solid #EEF2F7;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.setting-item:last-child{
+
+border-bottom:none;
+
+}
+
+.setting-item:hover{
+
+transform:translateX(6px);
+
+}
+
+.setting-item>i:first-child{
+
+width:45px;
+
+height:45px;
+
+background:#ECFDF5;
+
+border-radius:14px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+color:#16A34A;
+
+font-size:18px;
+
+}
+
+.setting-item span{
+
+flex:1;
+
+margin-left:15px;
+
+font-size:15px;
+
+font-weight:500;
+
+}
+
+.setting-item>i:last-child{
+
+color:#9CA3AF;
+
+}
+
+.logout{
+
+color:#DC2626;
+
+}
+
+.logout>i:first-child{
+
+background:#FEE2E2;
+
+color:#DC2626;
+
+}
+
+/* ==========================
+   DARK MODE
+========================== */
+
+body.dark{
+
+background:#0F172A;
+
+}
+
+body.dark .info-card,
+body.dark .settings-card,
+body.dark .profile-header button{
+
+background:#1E293B;
+
+color:white;
+
+}
+
+body.dark .info-row p,
+body.dark .settings-card h3,
+body.dark .setting-item span{
+
+color:white;
+
+}
+
+body.dark .info-row{
+
+border-color:#334155;
+
+}
+
+body.dark .setting-item{
+
+border-color:#334155;
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:480px){
+
+.profile-page{
+
+padding:16px;
+
+}
+
+.profile-card{
+
+padding:28px 20px;
+
+}
+
+.profile-image{
+
+width:100px;
+
+height:100px;
+
+}
+
+.profile-card h2{
+
+font-size:22px;
+
+}
+
+.setting-item span{
+
+font-size:14px;
+
+}
+
+}
+
+/* ==========================================
+PART 11.4
+ADVANCED SETTINGS
+========================================== */
+
+.setting-switch{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:18px 0;
+
+border-top:1px solid #EEF2F7;
+
+}
+
+.left{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+}
+
+.left i{
+
+width:42px;
+
+height:42px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:#ECFDF5;
+
+color:#16A34A;
+
+border-radius:12px;
+
+}
+
+.setting-select{
+
+margin-top:20px;
+
+}
+
+.setting-select label{
+
+display:block;
+
+margin-bottom:8px;
+
+font-weight:600;
+
+}
+
+.setting-select select{
+
+width:100%;
+
+padding:14px;
+
+border-radius:14px;
+
+border:2px solid #E5E7EB;
+
+font-size:15px;
+
+outline:none;
+
+}
+
+/* Toggle Switch */
+
+.switch{
+
+position:relative;
+
+display:inline-block;
+
+width:52px;
+
+height:28px;
+
+}
+
+.switch input{
+
+display:none;
+
+}
+
+.slider{
+
+position:absolute;
+
+cursor:pointer;
+
+top:0;
+
+left:0;
+
+right:0;
+
+bottom:0;
+
+background:#D1D5DB;
+
+border-radius:30px;
+
+transition:.3s;
+
+}
+
+.slider:before{
+
+content:"";
+
+position:absolute;
+
+width:22px;
+
+height:22px;
+
+left:3px;
+
+bottom:3px;
+
+background:white;
+
+border-radius:50%;
+
+transition:.3s;
+
+}
+
+input:checked + .slider{
+
+background:#16A34A;
+
+}
+
+input:checked + .slider:before{
+
+transform:translateX(24px);
+
+}
+
+/* ==========================================
+PART 11.5
+ABOUT APP
+========================================== */
+
+.app-version{
+
+text-align:center;
+
+margin-top:30px;
+
+color:#9CA3AF;
+
+font-size:13px;
+
+}
+
+.app-version strong{
+
+display:block;
+
+margin-bottom:5px;
+
+color:#16A34A;
+
+font-size:15px;
+
+}

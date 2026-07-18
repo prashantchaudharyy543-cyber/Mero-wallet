@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Profile</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet"
+href="profile.css">
+
+</head>
+
+<body>
+
+<div class="profile-page">
+
+<header class="profile-header">
+
+<button class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</button>
+
+<h2>My Profile</h2>
+
+<button id="editProfile">
+
+<i class="fa-solid fa-pen"></i>
+
+</button>
+
+</header>
+
+<!-- PROFILE CARD -->
+
+<div class="profile-card">
+
+<div class="profile-image">
+
+<img
+src="don.png"
+id="profilePhoto">
+
+<div class="camera-icon">
+
+<i class="fa-solid fa-camera"></i>
+
+</div>
+
+</div>
+
+<h2 id="userName">
+
+Prashant Chaudhary
+
+</h2>
+
+<p id="walletId">
+
+Wallet ID : 983465654785
+
+</p>
+
+<span class="verified">
+
+<i class="fa-solid fa-circle-check"></i>
+
+KYC Verified
+
+</span>
+
+</div>
+
+<!-- USER DETAILS -->
+
+<div class="info-card">
+
+<div class="info-row">
+
+<i class="fa-solid fa-phone"></i>
+
+<div>
+
+<label>Mobile Number</label>
+
+<p id="mobile">
+
+9800000000
+
+</p>
+
+</div>
+
+</div>
+
+<div class="info-row">
+
+<i class="fa-solid fa-envelope"></i>
+
+<div>
+
+<label>Email</label>
+
+<p id="email">
+
+user@example.com
+
+</p>
+
+</div>
+
+</div>
+
+<div class="info-row">
+
+<i class="fa-solid fa-location-dot"></i>
+
+<div>
+
+<label>Address</label>
+
+<p>
+
+Kathmandu, Nepal
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SETTINGS -->
+
+<div class="settings-card">
+
+<h3>Settings</h3>
+
+<div class="setting-item">
+
+<i class="fa-solid fa-lock"></i>
+
+<span>Change PIN</span>
+
+<i class="fa-solid fa-chevron-right"></i>
+
+</div>
+
+<div class="setting-item">
+
+<i class="fa-solid fa-fingerprint"></i>
+
+<span>Biometric Login</span>
+
+<i class="fa-solid fa-chevron-right"></i>
+
+</div>
+
+<div class="setting-item">
+
+<i class="fa-solid fa-language"></i>
+
+<span>Language</span>
+
+<i class="fa-solid fa-chevron-right"></i>
+
+</div>
+
+<div class="setting-item">
+
+<i class="fa-solid fa-bell"></i>
+
+<span>Notifications</span>
+
+<i class="fa-solid fa-chevron-right"></i>
+
+</div>
+
+<div class="setting-item logout">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+<span>Logout</span>
+
+<i class="fa-solid fa-chevron-right"></i>
+
+</div>
+
+<!-- ==========================================
+     SECURITY & ABOUT
+========================================== -->
+
+<div class="setting-item" id="changePassword">
+
+    <i class="fa-solid fa-key"></i>
+
+    <span>Change Password</span>
+
+    <i class="fa-solid fa-chevron-right"></i>
+
+</div>
+
+<div class="setting-item" id="appLock">
+
+    <i class="fa-solid fa-shield-halved"></i>
+
+    <span>App Lock</span>
+
+    <i class="fa-solid fa-chevron-right"></i>
+
+</div>
+
+<div class="setting-item" id="privacyPolicy">
+
+    <i class="fa-solid fa-file-shield"></i>
+
+    <span>Privacy Policy</span>
+
+    <i class="fa-solid fa-chevron-right"></i>
+
+</div>
+
+<div class="setting-item" id="helpCenter">
+
+    <i class="fa-solid fa-circle-question"></i>
+
+    <span>Help & FAQ</span>
+
+    <i class="fa-solid fa-chevron-right"></i>
+
+</div>
+
+<div class="setting-item" id="rateApp">
+
+    <i class="fa-solid fa-star"></i>
+
+    <span>Rate NepPay</span>
+
+    <i class="fa-solid fa-chevron-right"></i>
+
+</div>
+
+<div class="setting-item" id="aboutApp">
+
+    <i class="fa-solid fa-circle-info"></i>
+
+    <span>About App</span>
+
+    <i class="fa-solid fa-chevron-right"></i>
+
+</div>
+
+<!-- ==========================
+     ADVANCED SETTINGS
+========================== -->
+
+<div class="setting-switch">
+
+<div class="left">
+
+<i class="fa-solid fa-moon"></i>
+
+<span>Dark Mode</span>
+
+</div>
+
+<label class="switch">
+
+<input type="checkbox" id="darkToggle">
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+<div class="setting-switch">
+
+<div class="left">
+
+<i class="fa-solid fa-bell"></i>
+
+<span>Push Notifications</span>
+
+</div>
+
+<label class="switch">
+
+<input type="checkbox" id="notifyToggle" checked>
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+<div class="setting-switch">
+
+<div class="left">
+
+<i class="fa-solid fa-fingerprint"></i>
+
+<span>Biometric Login</span>
+
+</div>
+
+<label class="switch">
+
+<input type="checkbox" id="bioToggle">
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+<div class="setting-select">
+
+<label>Language</label>
+
+<select id="languageSelect">
+
+<option value="en">
+
+English
+
+</option>
+
+<option value="np">
+
+नेपाली
+
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="app-version">
+
+<strong>NepPay Wallet</strong>
+
+Version 1.0.0
+
+</div>
+
+<script src="profile.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NepPay Register</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="login-container">
+
+<div class="login-header">
+
+<div class="logo-circle">
+
+<i class="fa-solid fa-wallet"></i>
+
+</div>
+
+<h1>Create Account</h1>
+
+<p>Join NepPay Digital Wallet</p>
+
+</div>
+
+<form id="registerForm">
+
+<div class="input-group">
+
+<label>Full Name</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-user"></i>
+
+<input
+type="text"
+id="fullName"
+placeholder="Enter Full Name"
+required>
+
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>Mobile Number</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-phone"></i>
+
+<input
+type="tel"
+id="regMobile"
+placeholder="98XXXXXXXX"
+required>
+
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>Email Address</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-envelope"></i>
+
+<input
+type="email"
+id="email"
+placeholder="example@gmail.com"
+required>
+
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>Create MPIN</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-lock"></i>
+
+<input
+type="password"
+maxlength="4"
+id="createPin"
+placeholder="****"
+required>
+
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>Confirm MPIN</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-lock"></i>
+
+<input
+type="password"
+maxlength="4"
+id="confirmPin"
+placeholder="****"
+required>
+
+</div>
+
+</div>
+
+<div class="terms-box">
+
+<label>
+
+<input
+type="checkbox"
+id="terms">
+
+I agree to the
+
+<a href="#">Terms & Conditions</a>
+
+</label>
+
+</div>
+
+<button
+type="submit"
+class="login-btn">
+
+Create Account
+
+</button>
+
+<p class="register-text">
+
+Already have an account?
+
+<a href="login.html">
+
+Login
+
+</a>
+
+</p>
+
+</form>
+
+</div>
+
+<script src="Auth.js"></script>
+
+</body>
+
+</html>

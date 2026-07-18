@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>Merchant Payment</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet"
+href="merchant.css">
+
+</head>
+
+<body>
+
+<div class="merchant-page">
+
+<header class="merchant-header">
+
+<button class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</button>
+
+<h2>Merchant Payment</h2>
+
+<div style="width:45px"></div>
+
+</header>
+
+<!-- Merchant Card -->
+
+<div class="merchant-card">
+
+<img
+src="don.png"
+class="merchant-logo">
+
+<h2>Fresh Mart</h2>
+
+<p>Merchant ID : 83478368374</p>
+
+<span class="verified">
+
+<i class="fa-solid fa-circle-check"></i>
+
+Verified Merchant
+
+</span>
+
+</div>
+
+<!-- Payment Form -->
+
+<div class="payment-card">
+
+<label>Amount (Rs.)</label>
+
+<input
+type="number"
+id="amount"
+placeholder="Enter Amount">
+
+<label>Remarks</label>
+
+<input
+type="text"
+id="remarks"
+placeholder="Payment Remarks">
+
+<button id="payNow">
+
+Pay Now
+
+</button>
+
+</div>
+
+<!-- Favourite -->
+
+<div class="favorite-card">
+
+<button id="favoriteBtn">
+
+<i class="fa-regular fa-heart"></i>
+
+Add to Favorites
+
+</button>
+
+</div>
+<!-- ==========================================
+     WALLET SUMMARY
+========================================== -->
+
+<div class="wallet-card">
+
+<h3>Wallet Balance</h3>
+
+<h1 id="walletBalance">
+
+Rs. 25,000
+
+</h1>
+
+</div>
+
+<!-- ==========================================
+     SEARCH MERCHANT
+========================================== -->
+
+<div class="search-card">
+
+<input
+type="text"
+id="merchantSearch"
+placeholder="Search merchant...">
+
+</div>
+
+<!-- ==========================================
+     RECENT MERCHANTS
+========================================== -->
+
+<div class="recent-card">
+
+<h3>Recent Merchants</h3>
+
+<ul id="recentMerchants">
+
+</ul>
+
+</div>
+
+<!-- ==========================================
+     PAYMENT HISTORY
+========================================== -->
+
+<div class="history-card">
+
+<h3>Recent Transactions</h3>
+
+<ul id="transactionHistory">
+
+</ul>
+
+</div>
+
+</div>
+
+<script src="merchant.js"></script>
+
+</body>
+
+</html>

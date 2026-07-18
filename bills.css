@@ -1,0 +1,458 @@
+/* ==========================================
+   NEPPAY WALLET
+   BILLS & RECHARGE
+   PART 13.2
+========================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:#F5F7FB;
+
+color:#222;
+
+}
+
+.bill-page{
+
+max-width:430px;
+
+margin:auto;
+
+min-height:100vh;
+
+padding:20px;
+
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.bill-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:25px;
+
+}
+
+.bill-header h2{
+
+font-size:24px;
+
+font-weight:700;
+
+color:#111827;
+
+}
+
+.bill-header button{
+
+width:46px;
+
+height:46px;
+
+border:none;
+
+border-radius:50%;
+
+background:#fff;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+cursor:pointer;
+
+font-size:18px;
+
+color:#16A34A;
+
+transition:.3s;
+
+}
+
+.bill-header button:hover{
+
+background:#16A34A;
+
+color:#fff;
+
+transform:scale(1.05);
+
+}
+
+/* ==========================
+   SEARCH BOX
+========================== */
+
+.search-box{
+
+display:flex;
+
+align-items:center;
+
+background:#fff;
+
+padding:14px 16px;
+
+border-radius:18px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.06);
+
+margin-bottom:25px;
+
+}
+
+.search-box i{
+
+color:#16A34A;
+
+font-size:18px;
+
+margin-right:12px;
+
+}
+
+.search-box input{
+
+flex:1;
+
+border:none;
+
+outline:none;
+
+font-size:15px;
+
+background:transparent;
+
+}
+
+/* ==========================
+   BILL GRID
+========================== */
+
+.bill-grid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:16px;
+
+margin-bottom:25px;
+
+}
+
+.bill-card{
+
+background:#fff;
+
+border-radius:22px;
+
+padding:25px 15px;
+
+text-align:center;
+
+cursor:pointer;
+
+box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+transition:.3s;
+
+}
+
+.bill-card:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 15px 30px rgba(0,0,0,.10);
+
+}
+
+.bill-card i{
+
+width:60px;
+
+height:60px;
+
+margin:auto;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:18px;
+
+background:#ECFDF5;
+
+color:#16A34A;
+
+font-size:28px;
+
+margin-bottom:15px;
+
+}
+
+.bill-card h4{
+
+font-size:16px;
+
+font-weight:600;
+
+color:#111827;
+
+}
+
+/* ==========================
+   HISTORY CARD
+========================== */
+
+.history-card{
+
+background:#fff;
+
+padding:22px;
+
+border-radius:22px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+}
+
+.history-card h3{
+
+margin-bottom:18px;
+
+font-size:20px;
+
+}
+
+.history-card ul{
+
+list-style:none;
+
+padding:0;
+
+}
+
+.history-card li{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:14px 0;
+
+border-bottom:1px solid #EEF2F7;
+
+font-size:15px;
+
+}
+
+.history-card li:last-child{
+
+border-bottom:none;
+
+}
+
+.history-card span{
+
+font-weight:600;
+
+color:#16A34A;
+
+}
+
+/* ==========================
+   DARK MODE
+========================== */
+
+body.dark{
+
+background:#0F172A;
+
+}
+
+body.dark .bill-header button,
+
+body.dark .search-box,
+
+body.dark .bill-card,
+
+body.dark .history-card{
+
+background:#1E293B;
+
+color:white;
+
+}
+
+body.dark .bill-header h2,
+
+body.dark .bill-card h4,
+
+body.dark .history-card h3{
+
+color:white;
+
+}
+
+body.dark .search-box input{
+
+color:white;
+
+}
+
+body.dark .history-card li{
+
+border-color:#334155;
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:480px){
+
+.bill-page{
+
+padding:16px;
+
+}
+
+.bill-grid{
+
+gap:14px;
+
+}
+
+.bill-card{
+
+padding:22px 12px;
+
+}
+
+.bill-card i{
+
+width:55px;
+
+height:55px;
+
+font-size:24px;
+
+}
+
+.bill-card h4{
+
+font-size:15px;
+
+}
+
+}
+
+/* ==========================
+   QUICK PAYMENT FORM
+========================== */
+
+.payment-form{
+
+background:#fff;
+
+padding:22px;
+
+margin-bottom:20px;
+
+border-radius:22px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+}
+
+.payment-form h3{
+
+margin-bottom:18px;
+
+font-size:20px;
+
+}
+
+.payment-form label{
+
+display:block;
+
+margin:12px 0 8px;
+
+font-weight:600;
+
+}
+
+.payment-form input,
+.payment-form select{
+
+width:100%;
+
+padding:14px;
+
+border:2px solid #E5E7EB;
+
+border-radius:14px;
+
+outline:none;
+
+font-size:15px;
+
+}
+
+.payment-form input:focus,
+.payment-form select:focus{
+
+border-color:#16A34A;
+
+}
+
+#payBillBtn{
+
+width:100%;
+
+margin-top:20px;
+
+padding:15px;
+
+border:none;
+
+border-radius:14px;
+
+background:#16A34A;
+
+color:white;
+
+font-size:16px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+#payBillBtn:hover{
+
+background:#15803D;
+
+}

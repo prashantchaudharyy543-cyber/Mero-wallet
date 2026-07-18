@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>QR Scanner</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet"
+href="style.css">
+
+<script src="https://unpkg.com/html5-qrcode"></script>
+
+</head>
+
+<body>
+
+<div class="app scanner-page">
+
+<!-- HEADER -->
+
+<header class="scanner-header">
+
+<button class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</button>
+
+<h2>Scan & Pay</h2>
+
+<button class="history-btn">
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+</button>
+
+</header>
+
+<!-- CAMERA -->
+
+<section class="scanner-section">
+
+<div class="camera-box">
+
+    <div id="reader"></div>
+
+</div>
+
+<p class="scanner-text">
+
+Align QR Code inside the frame
+
+</p>
+
+</section>
+
+<!-- ACTIONS -->
+
+<section class="scanner-actions">
+
+<button id="flashBtn">
+
+<i class="fa-solid fa-bolt"></i>
+
+Flash
+
+</button>
+
+<button id="galleryBtn">
+
+<i class="fa-solid fa-image"></i>
+
+Gallery
+
+</button>
+
+<input
+type="file"
+id="galleryInput"
+accept="image/*"
+hidden>
+
+</section>
+
+<!-- MERCHANT CARD -->
+
+<section class="merchant-card">
+
+<div class="merchant-avatar">
+
+<i class="fa-solid fa-store"></i>
+
+</div>
+
+<div>
+
+<h3>NepPay Merchant</h3>
+
+<p>Waiting for QR Scan...</p>
+
+</div>
+
+</section>
+
+<!-- ======================================
+     PAYMENT BOTTOM SHEET
+======================================= -->
+
+<div class="payment-sheet" id="paymentSheet">
+
+    <div class="sheet-content">
+
+        <div class="sheet-bar"></div>
+
+        <div class="merchant-profile">
+
+            <div class="merchant-icon">
+
+                <i class="fa-solid fa-store"></i>
+
+            </div>
+
+            <div>
+
+                <h2 id="merchantName">
+
+                    NepPay Merchant
+
+                </h2>
+
+                <p id="merchantId">
+
+                    Merchant ID : NP001258
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="payment-form">
+
+            <label>
+
+                Amount (NPR)
+
+            </label>
+
+            <input
+
+            type="number"
+
+            id="payAmount"
+
+            placeholder="Enter Amount">
+
+            <label>
+
+                Remarks
+
+            </label>
+
+            <input
+
+            type="text"
+
+            id="remarks"
+
+            placeholder="Optional">
+
+        </div>
+
+        <div class="payment-summary">
+
+            <div>
+
+                <span>Charge</span>
+
+                <strong>Rs. 0.00</strong>
+
+            </div>
+
+            <div>
+
+                <span>Total</span>
+
+                <strong id="totalAmount">
+
+                    Rs. 0
+
+                </strong>
+
+            </div>
+
+        </div>
+
+        <button id="payNow">
+
+            Continue Payment
+
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- ==========================================
+     PART 4.4D
+     MPIN & SUCCESS MODAL
+========================================== -->
+
+<!-- MPIN MODAL -->
+
+<div class="pin-modal" id="pinModal">
+
+    <div class="pin-card">
+
+        <div class="pin-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+        </div>
+
+        <h2>Verify Payment</h2>
+
+        <p>
+            Enter your 4 Digit MPIN
+        </p>
+
+        <input
+        type="password"
+        maxlength="4"
+        id="scannerPin"
+        placeholder="••••">
+
+        <div class="bio-buttons">
+
+            <button id="fingerBtn">
+
+                <i class="fa-solid fa-fingerprint"></i>
+
+                Fingerprint
+
+            </button>
+
+            <button id="faceBtn">
+
+                <i class="fa-solid fa-face-smile"></i>
+
+                Face ID
+
+            </button>
+
+        </div>
+
+        <button id="verifyPayment">
+
+            Verify Payment
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- SUCCESS -->
+
+<div class="success-modal"
+
+id="successModal">
+
+<div class="success-card">
+<div class="success-circle">
+
+    <div id="successAnimation"></div>
+
+</div>
+
+<i class="fa-solid fa-circle-check"></i>
+
+</div>
+
+<h2>
+
+Payment Successful
+
+</h2>
+
+<p>
+
+Your payment has been completed successfully.
+
+</p>
+
+<div class="receipt-card">
+
+<div>
+
+<span>Merchant</span>
+
+<strong id="receiptMerchant">
+
+NepPay Merchant
+
+</strong>
+
+</div>
+
+<div>
+
+<span>Amount</span>
+
+<strong id="receiptAmount">
+
+Rs.0
+
+</strong>
+
+</div>
+
+<div>
+
+<span>Status</span>
+
+<strong style="color:#14B85C">
+
+SUCCESS
+
+</strong>
+
+</div>
+
+<div>
+
+<span>Transaction ID</span>
+
+<strong id="receiptTxn">
+
+NP458621258
+
+</strong>
+
+</div>
+
+</div>
+
+<div class="receipt-buttons">
+
+<button id="shareReceipt">
+
+<i class="fa-solid fa-share-nodes"></i>
+
+Share
+
+</button>
+
+<button id="downloadReceipt">
+
+<i class="fa-solid fa-download"></i>
+
+Download
+
+</button>
+
+</div>
+
+<button id="finishPayment">
+
+Done
+
+</button>
+
+</div>
+
+</div>
+
+<script src="scanner.js"></script>
+
+<!-- Lottie Animation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NepPay Login</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+ 
+<body>
+
+<div class="login-container">
+
+<div class="login-header">
+
+<div class="logo-circle">
+
+<i class="fa-solid fa-wallet"></i>
+
+</div>
+
+<h1>NepPay</h1>
+
+<p>Secure Digital Wallet</p>
+
+</div>
+
+<form id="loginForm">
+
+<div class="input-group">
+
+<label>Mobile Number</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-phone"></i>
+
+<input
+type="tel"
+id="mobile"
+placeholder="98XXXXXXXX"
+required>
+
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>MPIN</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-lock"></i>
+
+<input
+type="password"
+id="password"
+maxlength="4"
+placeholder="****"
+required>
+
+<i class="fa-solid fa-eye togglePassword"></i>
+
+</div>
+
+</div>
+
+<div class="login-options">
+
+<label>
+
+<input type="checkbox">
+
+Remember Me
+
+</label>
+
+<a href="forgot-password.html">
+
+Forgot MPIN?
+
+</a>
+
+</div>
+
+<button
+type="submit"
+class="login-btn">
+
+Login
+
+</button>
+
+<div class="biometric-login">
+
+<button
+type="button"
+id="fingerLogin">
+
+<i class="fa-solid fa-fingerprint"></i>
+
+Fingerprint
+
+</button>
+
+<button
+type="button"
+id="faceLogin">
+
+<i class="fa-solid fa-face-smile"></i>
+
+Face ID
+
+</button>
+
+</div>
+
+<p class="register-text">
+
+Don't have an account?
+
+<a href="register.html">
+
+Register Now
+
+</a>
+
+</p>
+
+</form>
+
+</div>
+
+<script src="Auth.js"></script>
+
+</body>
+
+</html>

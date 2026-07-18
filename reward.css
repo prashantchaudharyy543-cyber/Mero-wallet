@@ -1,0 +1,617 @@
+/* ==========================================
+   NEPPAY WALLET
+   REWARDS MODULE
+   PART 9.2
+========================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:#F5F7FB;
+
+color:#222;
+
+}
+
+.reward-page{
+
+max-width:430px;
+
+margin:auto;
+
+min-height:100vh;
+
+padding:20px;
+
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.reward-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:28px;
+
+}
+
+.reward-header h2{
+
+font-size:24px;
+
+font-weight:600;
+
+color:#111827;
+
+}
+
+.back-btn,
+.gift-btn{
+
+width:45px;
+
+height:45px;
+
+border:none;
+
+border-radius:50%;
+
+background:white;
+
+box-shadow:0 5px 18px rgba(0,0,0,.08);
+
+cursor:pointer;
+
+font-size:18px;
+
+color:#16A34A;
+
+transition:.25s;
+
+}
+
+.back-btn:hover,
+.gift-btn:hover{
+
+transform:scale(1.05);
+
+}
+
+/* ===========================
+   REWARD CARD
+=========================== */
+
+.reward-card{
+
+background:linear-gradient(135deg,#16A34A,#22C55E);
+
+border-radius:24px;
+
+padding:26px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+color:white;
+
+box-shadow:0 15px 35px rgba(22,163,74,.30);
+
+margin-bottom:22px;
+
+}
+
+.reward-card p{
+
+font-size:15px;
+
+opacity:.9;
+
+margin-bottom:10px;
+
+}
+
+.reward-card h1{
+
+font-size:38px;
+
+font-weight:700;
+
+}
+
+.reward-icon{
+
+width:75px;
+
+height:75px;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.18);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:34px;
+
+}
+
+/* ===========================
+   CASHBACK
+=========================== */
+
+.cashback-card{
+
+background:white;
+
+border-radius:22px;
+
+padding:22px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+box-shadow:0 8px 25px rgba(0,0,0,.06);
+
+margin-bottom:22px;
+
+}
+
+.cashback-card h3{
+
+font-size:16px;
+
+color:#6B7280;
+
+margin-bottom:8px;
+
+}
+
+.cashback-card h2{
+
+font-size:30px;
+
+color:#16A34A;
+
+}
+
+.cashback-card i{
+
+font-size:40px;
+
+color:#16A34A;
+
+}
+
+/* ===========================
+   MENU
+=========================== */
+
+.reward-menu{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:16px;
+
+margin-bottom:28px;
+
+}
+
+.reward-item{
+
+background:white;
+
+padding:18px 12px;
+
+border-radius:18px;
+
+text-align:center;
+
+cursor:pointer;
+
+box-shadow:0 6px 18px rgba(0,0,0,.05);
+
+transition:.3s;
+
+}
+
+.reward-item:hover{
+
+transform:translateY(-5px);
+
+}
+
+.reward-item i{
+
+font-size:24px;
+
+color:#16A34A;
+
+margin-bottom:10px;
+
+}
+
+.reward-item span{
+
+font-size:13px;
+
+font-weight:500;
+
+display:block;
+
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.checkin-btn{
+
+width:100%;
+
+padding:16px;
+
+border:none;
+
+border-radius:18px;
+
+background:#16A34A;
+
+color:white;
+
+font-size:17px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+box-shadow:0 12px 25px rgba(22,163,74,.25);
+
+}
+
+.checkin-btn:hover{
+
+background:#15803D;
+
+transform:translateY(-2px);
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:420px){
+
+.reward-menu{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.reward-card h1{
+
+font-size:32px;
+
+}
+
+.reward-icon{
+
+width:65px;
+
+height:65px;
+
+font-size:28px;
+
+}
+
+}
+
+/* ==========================================
+PART 9.4
+SCRATCH CARD
+========================================== */
+
+.scratch-page{
+
+padding:25px;
+
+max-width:430px;
+
+margin:auto;
+
+text-align:center;
+
+}
+
+.scratch-card{
+
+margin:35px auto;
+
+width:100%;
+
+height:220px;
+
+border-radius:24px;
+
+overflow:hidden;
+
+position:relative;
+
+background:#16A34A;
+
+color:white;
+
+box-shadow:0 18px 35px rgba(22,163,74,.25);
+
+}
+
+.scratch-cover{
+
+position:absolute;
+
+inset:0;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:24px;
+
+font-weight:700;
+
+background:linear-gradient(135deg,#C0C0C0,#8E8E8E);
+
+transition:.6s;
+
+cursor:pointer;
+
+}
+
+.scratch-cover.hide{
+
+opacity:0;
+
+visibility:hidden;
+
+}
+
+.scratch-prize{
+
+height:100%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.scratch-prize h1{
+
+font-size:30px;
+
+}
+
+/* ==========================================
+PART 9.5
+REDEEM
+========================================== */
+
+.redeem-grid{
+
+display:grid;
+
+gap:18px;
+
+margin-top:25px;
+
+}
+
+.redeem-card{
+
+background:white;
+
+padding:22px;
+
+border-radius:20px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+}
+
+.redeem-card h3{
+
+margin-bottom:10px;
+
+}
+
+.redeem-card p{
+
+color:#16A34A;
+
+font-weight:600;
+
+margin-bottom:18px;
+
+}
+
+.redeem-card button{
+
+width:100%;
+
+padding:14px;
+
+border:none;
+
+border-radius:14px;
+
+background:#16A34A;
+
+color:white;
+
+font-size:15px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.redeem-card button:hover{
+
+background:#15803D;
+
+}
+
+/* ==========================================
+PART 9.6
+LEVELS & HISTORY
+========================================== */
+
+.reward-level-card,
+.achievement-card,
+.history-card{
+
+background:#fff;
+
+padding:22px;
+
+border-radius:22px;
+
+margin-top:22px;
+
+box-shadow:0 8px 25px rgba(0,0,0,.06);
+
+}
+
+.level-header{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-bottom:15px;
+
+}
+
+#levelName{
+
+font-weight:600;
+
+color:#16A34A;
+
+}
+
+.progress-bar{
+
+height:12px;
+
+background:#E5E7EB;
+
+border-radius:30px;
+
+overflow:hidden;
+
+margin-bottom:10px;
+
+}
+
+.progress-fill{
+
+height:100%;
+
+width:0%;
+
+background:linear-gradient(90deg,#16A34A,#22C55E);
+
+transition:.5s;
+
+}
+
+.achievement-grid{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:15px;
+
+margin-top:18px;
+
+}
+
+.badge{
+
+text-align:center;
+
+padding:15px;
+
+background:#F9FAFB;
+
+border-radius:16px;
+
+font-size:28px;
+
+}
+
+.badge p{
+
+margin-top:8px;
+
+font-size:12px;
+
+}
+
+.history-card ul{
+
+list-style:none;
+
+padding:0;
+
+margin-top:15px;
+
+}
+
+.history-card li{
+
+padding:12px 0;
+
+border-bottom:1px solid #eee;
+
+font-size:14px;
+
+}
+
+.history-card li:last-child{
+
+border:none;
+
+}

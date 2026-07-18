@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Linked Banks</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<header class="bank-header">
+
+<button class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</button>
+
+<h2>Linked Banks</h2>
+
+<button id="addBank">
+
+<i class="fa-solid fa-plus"></i>
+
+</button>
+
+</header>
+
+<!-- Search -->
+
+<div class="bank-search">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+type="text"
+id="bankSearch"
+placeholder="Search Bank">
+
+</div>
+
+<!-- Linked Banks -->
+
+<div class="bank-list">
+
+<div class="bank-card">
+
+<div class="bank-icon">
+
+<i class="fa-solid fa-building-columns"></i>
+
+</div>
+
+<div class="bank-info">
+
+<h3>Everest Bank</h3>
+
+<p>****45896321</p>
+
+</div>
+
+<span class="verified">
+
+Verified
+
+</span>
+
+</div>
+
+<div class="bank-card">
+
+<div class="bank-icon">
+
+<i class="fa-solid fa-building-columns"></i>
+
+</div>
+
+<div class="bank-info">
+
+<h3>Nabil Bank</h3>
+
+<p>****87452123</p>
+
+</div>
+
+<span class="verified">
+
+Verified
+
+</span>
+
+</div>
+
+<div class="bank-card">
+
+<div class="bank-icon">
+
+<i class="fa-solid fa-building-columns"></i>
+
+</div>
+
+<div class="bank-info">
+
+<h3>Global IME Bank</h3>
+
+<p>****63251489</p>
+
+</div>
+
+<span class="verified">
+
+Verified
+
+</span>
+
+</div>
+
+</div>
+
+<!-- Load Money -->
+
+<button class="load-money-btn">
+
+Load Money
+
+</button>
+
+<!-- ==========================================
+     ADD BANK MODAL
+========================================== -->
+
+<div class="modal-overlay" id="bankModal">
+
+    <div class="bank-modal">
+
+        <div class="modal-header">
+
+            <h2>Link Bank Account</h2>
+
+            <button id="closeModal">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <form id="bankForm">
+
+            <div class="input-group">
+
+                <label>Select Bank</label>
+
+                <select id="bankName" required>
+
+                    <option value="">Choose Bank</option>
+
+                    <option>Everest Bank</option>
+                    <option>Nabil Bank</option>
+                    <option>Global IME Bank</option>
+                    <option>Kumari Bank</option>
+                    <option>NIC Asia Bank</option>
+                    <option>Prabhu Bank</option>
+                    <option>Siddhartha Bank</option>
+
+                </select>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Account Holder</label>
+
+                <input
+                type="text"
+                id="holderName"
+                placeholder="Full Name"
+                required>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Account Number</label>
+
+                <input
+                type="text"
+                id="accountNumber"
+                placeholder="XXXXXXXXXXXX"
+                required>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Registered Mobile</label>
+
+                <input
+                type="tel"
+                id="bankMobile"
+                placeholder="98XXXXXXXX"
+                required>
+
+            </div>
+
+            <button
+            class="login-btn"
+            type="submit">
+
+            Link Bank
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     BANK OTP VERIFICATION
+========================================== -->
+
+<div class="modal-overlay" id="otpModal">
+
+    <div class="bank-modal">
+
+        <div class="modal-header">
+
+            <h2>Verify Bank</h2>
+
+        </div>
+
+        <p class="otp-info">
+
+            Enter the 6-digit OTP sent to your registered mobile number.
+
+        </p>
+
+        <div class="otp-container">
+
+            <input maxlength="1" class="bank-otp">
+            <input maxlength="1" class="bank-otp">
+            <input maxlength="1" class="bank-otp">
+            <input maxlength="1" class="bank-otp">
+            <input maxlength="1" class="bank-otp">
+            <input maxlength="1" class="bank-otp">
+
+        </div>
+
+        <button
+        id="verifyBankOtp"
+        class="login-btn">
+
+        Verify Bank
+
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+<div class="loading-overlay" id="loadingScreen">
+
+    <div class="loader"></div>
+
+    <p class="loading-text">
+
+        Verifying Bank...
+
+    </p>
+
+</div>
+
+<script src="bank.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<title>Rewards</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet"
+href="reward.css">
+
+</head>
+
+<body>
+
+<div class="reward-page">
+
+<header class="reward-header">
+
+<button class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</button>
+
+<h2>Rewards</h2>
+
+<button class="gift-btn">
+
+<i class="fa-solid fa-gift"></i>
+
+</button>
+
+</header>
+
+<!-- Reward Card -->
+
+<div class="reward-card">
+
+<div>
+
+<p>Total Reward Points</p>
+
+<h1 id="rewardPoints">
+
+1,250
+
+</h1>
+
+</div>
+
+<div class="reward-icon">
+
+<i class="fa-solid fa-star"></i>
+
+</div>
+
+</div>
+
+<!-- Cashback Card -->
+
+<div class="cashback-card">
+
+<div>
+
+<h3>Total Cashback</h3>
+
+<h2>
+
+Rs.
+
+<span id="cashback">
+
+520
+
+</span>
+
+</h2>
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-wallet"></i>
+
+</div>
+
+</div>
+
+<!-- Menu -->
+
+<div class="reward-menu">
+
+<div class="reward-item">
+
+<i class="fa-solid fa-ticket"></i>
+
+<span>Coupons</span>
+
+</div>
+
+<div class="reward-item">
+
+<i class="fa-solid fa-coins"></i>
+
+<span>Cashback</span>
+
+</div>
+
+<div class="reward-item">
+
+<i class="fa-solid fa-calendar-check"></i>
+
+<span>Daily Bonus</span>
+
+</div>
+
+<div class="reward-item">
+
+<i class="fa-solid fa-gift"></i>
+
+<span>Redeem</span>
+
+</div>
+
+</div>
+
+<button
+class="checkin-btn"
+id="dailyBonus">
+
+Claim Daily Bonus
+
+</button>
+
+</div>
+<!-- ==========================================
+     REWARD LEVEL
+========================================== -->
+
+<section class="reward-level-card">
+
+    <div class="level-header">
+
+        <h3>Your Reward Level</h3>
+
+        <span id="levelName">
+
+            Silver
+
+        </span>
+
+    </div>
+
+    <div class="progress-bar">
+
+        <div
+        class="progress-fill"
+        id="progressFill">
+
+        </div>
+
+    </div>
+
+    <small id="progressText">
+
+        1250 / 5000 Points
+
+    </small>
+
+</section>
+
+<!-- ==========================================
+     ACHIEVEMENTS
+========================================== -->
+
+<section class="achievement-card">
+
+<h3>Achievements</h3>
+
+<div class="achievement-grid">
+
+<div class="badge">
+
+🏅
+
+<p>First Payment</p>
+
+</div>
+
+<div class="badge">
+
+🎁
+
+<p>1000 Points</p>
+
+</div>
+
+<div class="badge">
+
+💸
+
+<p>Cashback</p>
+
+</div>
+
+<div class="badge">
+
+🔥
+
+<p>7 Day Streak</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+     REDEEM HISTORY
+========================================== -->
+
+<section class="history-card">
+
+<h3>Recent Rewards</h3>
+
+<ul id="historyList">
+
+<li>🎁 Daily Bonus +20</li>
+
+<li>💸 Cashback +Rs.5</li>
+
+<li>⭐ Scratch Card +50 Points</li>
+
+</ul>
+
+</section>
+
+<script src="reward.js"></script>
+
+</body>
+
+</html>

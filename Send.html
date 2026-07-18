@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Send Money</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<header class="page-header">
+
+<button class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</button>
+
+<h2>Send Money</h2>
+
+<div></div>
+
+</header>
+
+<div class="page-content">
+
+<!-- Search -->
+
+<div class="search-box">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+type="text"
+placeholder="Search recipient">
+
+</div>
+
+<!-- Recent -->
+
+<h3 class="section-heading">
+
+Recent
+
+</h3>
+
+<div class="recent-users">
+
+<div class="recent-user">
+
+<img src="https://i.pravatar.cc/100?img=11">
+
+<p>Ram</p>
+
+</div>
+
+<div class="recent-user">
+
+<img src="https://i.pravatar.cc/100?img=32">
+
+<p>Sita</p>
+
+</div>
+
+<div class="recent-user">
+
+<img src="https://i.pravatar.cc/100?img=48">
+
+<p>Hari</p>
+
+</div>
+
+<div class="recent-user">
+
+<img src="https://i.pravatar.cc/100?img=25">
+
+<p>Asha</p>
+
+</div>
+
+</div>
+
+<!-- Contact List -->
+
+<h3 class="section-heading">
+
+All Contacts
+
+</h3>
+
+<div class="contact-list">
+
+<div class="contact">
+
+<img src="https://i.pravatar.cc/100?img=14">
+
+<div>
+
+<h4>Ram Sharma</h4>
+
+<span>9800000001</span>
+
+</div>
+
+<i class="fa-solid fa-angle-right"></i>
+
+</div>
+
+<!-- ===================================
+     SEND MONEY MODAL
+=================================== -->
+
+<div class="send-modal" id="sendModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>Send Money</h2>
+
+            <button id="closeModal">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <div class="recipient-card">
+
+            <img id="recipientImage"
+            src="https://i.pravatar.cc/100?img=14">
+
+            <h3 id="recipientName">
+
+                Ram Sharma
+
+            </h3>
+
+            <p id="recipientPhone">
+
+                9800000001
+
+            </p>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>Amount (NPR)</label>
+
+            <input
+            type="number"
+            id="amount"
+            placeholder="Enter Amount">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>Remarks</label>
+
+            <input
+            type="text"
+            id="remarks"
+            placeholder="Optional">
+
+        </div>
+
+        <button id="continueBtn">
+
+            Continue
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ===================================
+     MPIN MODAL
+=================================== -->
+
+<div class="pin-modal" id="pinModal">
+
+    <div class="pin-card">
+
+        <div class="success-icon">
+
+            <i class="fa-solid fa-lock"></i>
+
+        </div>
+
+        <h2>Verify MPIN</h2>
+
+        <p>Enter your 4-digit MPIN</p>
+
+        <input
+            type="password"
+            id="mpin"
+            maxlength="4"
+            placeholder="••••">
+
+        <button id="verifyPin">
+
+            Verify & Send
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- SUCCESS -->
+
+<div class="success-modal" id="successModal">
+
+    <div class="success-card">
+
+        <div class="check">
+
+            <i class="fa-solid fa-check"></i>
+
+        </div>
+
+        <h2>Payment Successful</h2>
+
+        <p id="receiptText"></p>
+
+        <button id="shareReceipt">
+
+            Share Receipt
+
+        </button>
+
+        <button id="doneBtn">
+
+            Done
+
+        </button>
+
+    </div>
+
+</div>
+
+<div class="contact">
+
+<img src="https://i.pravatar.cc/100?img=18">
+
+<div>
+
+<h4>Sita Karki</h4>
+
+<span>9811111111</span>
+
+</div>
+
+<i class="fa-solid fa-angle-right"></i>
+
+</div>
+
+<div class="contact">
+
+<img src="https://i.pravatar.cc/100?img=21">
+
+<div>
+
+<h4>Hari KC</h4>
+
+<span>9822222222</span>
+
+</div>
+
+<i class="fa-solid fa-angle-right"></i>
+
+</div>
+
+<div class="contact">
+
+<img src="https://i.pravatar.cc/100?img=55">
+
+<div>
+
+<h4>Asha Rai</h4>
+
+<span>9844444444</span>
+
+</div>
+
+<i class="fa-solid fa-angle-right"></i>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="send.js"></script>
+
+</body>
+
+</html>

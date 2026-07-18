@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Investment & Savings</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet"
+href="investment.css">
+
+</head>
+
+<body>
+
+<div class="investment-page">
+
+<header class="investment-header">
+
+<button class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</button>
+
+<h2>Investment & Savings</h2>
+
+<div style="width:45px;"></div>
+
+</header>
+
+<!-- Portfolio Card -->
+
+<div class="portfolio-card">
+
+<p>Total Portfolio Value</p>
+
+<h1 id="portfolioValue">
+
+Rs. 0
+
+</h1>
+
+<span>
+
+Updated Today
+
+</span>
+
+</div>
+
+<!-- Investment Options -->
+
+<div class="investment-grid">
+
+<div class="investment-card">
+
+<i class="fa-solid fa-piggy-bank"></i>
+
+<h4>Fixed Deposit</h4>
+
+<p>Earn up to 8.5% yearly</p>
+
+</div>
+
+<div class="investment-card">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<h4>Mutual Fund</h4>
+
+<p>Long-term investment</p>
+
+</div>
+
+<div class="investment-card">
+
+<i class="fa-solid fa-coins"></i>
+
+<h4>Gold</h4>
+
+<p>Digital Gold Saving</p>
+
+</div>
+
+<div class="investment-card">
+
+<i class="fa-solid fa-bullseye"></i>
+
+<h4>Savings Goal</h4>
+
+<p>Create financial goals</p>
+
+</div>
+
+</div>
+
+<!-- Goal Progress -->
+
+<div class="goal-card">
+
+<div class="goal-top">
+
+<h3>Monthly Savings Goal</h3>
+
+<span id="goalPercent">
+
+0%
+
+</span>
+
+</div>
+
+<div class="progress">
+
+<div class="progress-bar"
+id="goalBar">
+
+</div>
+
+</div>
+
+<p id="goalText">
+
+Rs. 0 of Rs. 50,000 Saved
+
+</p>
+
+</div>
+
+<!-- Portfolio Summary -->
+
+<div class="summary-card">
+
+<h3>Portfolio Summary</h3>
+
+<ul>
+
+<li>
+
+FD
+
+<span id="fdAmount">
+
+Rs. 0
+
+</span>
+
+</li>
+
+<li>
+
+Mutual Fund
+
+<span id="mfAmount">
+
+Rs. 0
+
+</span>
+
+</li>
+
+<li>
+
+Gold
+
+<span id="goldAmount">
+
+Rs. 0
+
+</span>
+
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<script src="investment.js"></script>
+
+</body>
+
+</html>

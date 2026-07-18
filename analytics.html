@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Wallet Analytics</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet"
+href="analytics.css">
+
+</head>
+
+<body>
+
+<div class="analytics-page">
+
+<header class="analytics-header">
+
+<button class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</button>
+
+<h2>Wallet Analytics</h2>
+
+<div style="width:45px"></div>
+
+</header>
+
+<!-- Wallet Balance -->
+
+<div class="balance-card">
+
+<p>Available Balance</p>
+
+<h1 id="walletBalance">
+
+Rs. 999,999
+
+</h1>
+
+</div>
+
+<!-- Summary -->
+
+<div class="summary-grid">
+
+<div class="summary-card income">
+
+<i class="fa-solid fa-arrow-trend-up"></i>
+
+<h4>Income</h4>
+
+<h2 id="incomeAmount">
+
+Rs. 1000,000
+
+</h2>
+
+</div>
+
+<div class="summary-card expense">
+
+<i class="fa-solid fa-arrow-trend-down"></i>
+
+<h4>Expense</h4>
+
+<h2 id="expenseAmount">
+
+Rs. 999,999
+
+</h2>
+
+</div>
+
+</div>
+
+<!-- Budget -->
+
+<div class="budget-card">
+
+<div class="budget-top">
+
+<h3>Monthly Budget</h3>
+
+<span id="budgetPercent">
+
+0%
+
+</span>
+
+</div>
+
+<div class="progress">
+
+<div class="progress-bar"
+id="progressBar">
+
+</div>
+
+</div>
+
+<p id="budgetText">
+
+Budget Usage
+
+</p>
+
+</div>
+
+<!-- Filter -->
+
+<div class="filter-card">
+
+<select id="filter">
+
+<option>
+
+This Week
+
+</option>
+
+<option selected>
+
+This Month
+
+</option>
+
+<option>
+
+This Year
+
+</option>
+
+</select>
+
+</div>
+
+<!-- Savings -->
+
+<div class="saving-card">
+
+<h3>Total Savings</h3>
+
+<h1 id="savingAmount">
+
+Rs. 0
+
+</h1>
+
+<p>
+
+Keep saving to achieve your financial goals.
+
+</p>
+
+</div>
+
+</div>
+
+<script src="analytics.js"></script>
+
+</body>
+
+</html>

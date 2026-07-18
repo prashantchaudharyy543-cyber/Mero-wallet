@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Notifications</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet"
+href="notification.css">
+
+</head>
+
+<body>
+
+<div class="notification-page">
+
+<header class="notification-header">
+
+<button class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</button>
+
+<h2>
+
+Notifications
+
+<span id="notificationCount">
+
+4
+
+</span>
+
+</h2>
+
+<button id="markAll">
+
+<i class="fa-solid fa-check-double"></i>
+
+</button>
+
+<button id="darkModeBtn">
+
+<i class="fa-solid fa-moon"></i>
+
+</button>
+
+</header>
+
+<div class="search-box">
+
+    <!-- ==========================================
+     FILTER BAR
+========================================== -->
+
+<div class="filter-bar">
+
+<button class="filter-btn active" data-filter="all">
+All
+</button>
+
+<button class="filter-btn" data-filter="payment">
+Payments
+</button>
+
+<button class="filter-btn" data-filter="reward">
+Rewards
+</button>
+
+<button class="filter-btn" data-filter="bank">
+Bank
+</button>
+
+<button class="filter-btn" data-filter="offer">
+Offers
+</button>
+
+</div>
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+type="text"
+id="searchNotification"
+placeholder="Search notification">
+
+</div>
+
+<h3 class="group-title">
+
+Today
+
+</h3>
+
+<div id="notificationList">
+
+<div class="notification-card unread">
+
+<div class="notify-icon payment">
+
+<i class="fa-solid fa-money-bill-transfer"></i>
+
+</div>
+
+<div class="notify-content">
+
+<h4>Money Sent</h4>
+
+<p>You sent Rs.500 to Ram Sharma.</p>
+
+<small>5 min ago</small>
+
+</div>
+
+</div>
+
+<div class="notification-card unread">
+
+<div class="notify-icon reward">
+
+<i class="fa-solid fa-gift"></i>
+
+</div>
+
+<div class="notify-content">
+
+<h4>Reward Earned</h4>
+
+<p>You received 20 reward points.</p>
+
+<small>25 min ago</small>
+
+</div>
+
+</div>
+
+<div class="notification-card">
+
+<div class="notify-icon bank">
+
+<i class="fa-solid fa-building-columns"></i>
+
+</div>
+
+<div class="notify-content">
+
+<h4>Bank Linked</h4>
+
+<p>Everest Bank linked successfully.</p>
+
+<small>Yesterday</small>
+
+</div>
+
+</div>
+
+<div class="notification-card">
+
+<div class="notify-icon offer">
+
+<i class="fa-solid fa-tags"></i>
+
+</div>
+
+<div class="notify-content">
+
+<h4>Special Offer</h4>
+
+<p>Get 10% cashback on electricity payment.</p>
+
+<small>2 days ago</small>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="notification.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,502 @@
+/* ==========================================
+   NEPPAY WALLET
+   INVESTMENT & SAVINGS
+   PART 15.2
+========================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:#F5F7FB;
+
+color:#222;
+
+}
+
+.investment-page{
+
+max-width:430px;
+
+margin:auto;
+
+min-height:100vh;
+
+padding:20px;
+
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.investment-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:25px;
+
+}
+
+.investment-header h2{
+
+font-size:24px;
+
+font-weight:700;
+
+color:#111827;
+
+}
+
+.investment-header button{
+
+width:46px;
+
+height:46px;
+
+border:none;
+
+border-radius:50%;
+
+background:#fff;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+cursor:pointer;
+
+font-size:18px;
+
+color:#16A34A;
+
+transition:.3s;
+
+}
+
+.investment-header button:hover{
+
+background:#16A34A;
+
+color:#fff;
+
+transform:scale(1.05);
+
+}
+
+/* ==========================
+   PORTFOLIO CARD
+========================== */
+
+.portfolio-card{
+
+background:linear-gradient(135deg,#16A34A,#22C55E);
+
+padding:30px;
+
+border-radius:28px;
+
+color:#fff;
+
+box-shadow:0 18px 35px rgba(22,163,74,.25);
+
+margin-bottom:22px;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.portfolio-card::before{
+
+content:"";
+
+position:absolute;
+
+top:-50px;
+
+right:-50px;
+
+width:150px;
+
+height:150px;
+
+background:rgba(255,255,255,.08);
+
+border-radius:50%;
+
+}
+
+.portfolio-card p{
+
+font-size:15px;
+
+opacity:.9;
+
+margin-bottom:8px;
+
+}
+
+.portfolio-card h1{
+
+font-size:36px;
+
+font-weight:700;
+
+margin-bottom:10px;
+
+}
+
+.portfolio-card span{
+
+font-size:14px;
+
+opacity:.9;
+
+}
+
+/* ==========================
+   INVESTMENT GRID
+========================== */
+
+.investment-grid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:16px;
+
+margin-bottom:22px;
+
+}
+
+.investment-card{
+
+background:#fff;
+
+padding:22px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.investment-card:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 15px 35px rgba(0,0,0,.10);
+
+}
+
+.investment-card i{
+
+width:60px;
+
+height:60px;
+
+margin:auto;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:18px;
+
+background:#ECFDF5;
+
+color:#16A34A;
+
+font-size:28px;
+
+margin-bottom:15px;
+
+}
+
+.investment-card h4{
+
+font-size:16px;
+
+margin-bottom:8px;
+
+color:#111827;
+
+}
+
+.investment-card p{
+
+font-size:13px;
+
+color:#6B7280;
+
+}
+
+/* ==========================
+   GOAL CARD
+========================== */
+
+.goal-card{
+
+background:#fff;
+
+padding:22px;
+
+border-radius:22px;
+
+margin-bottom:22px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+}
+
+.goal-top{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:15px;
+
+}
+
+.goal-top h3{
+
+font-size:18px;
+
+}
+
+.goal-top span{
+
+font-weight:600;
+
+color:#16A34A;
+
+}
+
+.progress{
+
+width:100%;
+
+height:12px;
+
+background:#E5E7EB;
+
+border-radius:50px;
+
+overflow:hidden;
+
+}
+
+.progress-bar{
+
+width:0%;
+
+height:100%;
+
+background:linear-gradient(90deg,#16A34A,#22C55E);
+
+border-radius:50px;
+
+transition:width .8s ease;
+
+}
+
+#goalText{
+
+margin-top:12px;
+
+font-size:14px;
+
+color:#6B7280;
+
+}
+
+/* ==========================
+   SUMMARY CARD
+========================== */
+
+.summary-card{
+
+background:#fff;
+
+padding:22px;
+
+border-radius:22px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+}
+
+.summary-card h3{
+
+margin-bottom:18px;
+
+font-size:20px;
+
+}
+
+.summary-card ul{
+
+list-style:none;
+
+padding:0;
+
+}
+
+.summary-card li{
+
+display:flex;
+
+justify-content:space-between;
+
+padding:15px 0;
+
+border-bottom:1px solid #EEF2F7;
+
+font-size:15px;
+
+}
+
+.summary-card li:last-child{
+
+border-bottom:none;
+
+}
+
+.summary-card span{
+
+font-weight:600;
+
+color:#16A34A;
+
+}
+
+/* ==========================
+   DARK MODE
+========================== */
+
+body.dark{
+
+background:#0F172A;
+
+}
+
+body.dark .investment-header button,
+
+body.dark .investment-card,
+
+body.dark .goal-card,
+
+body.dark .summary-card{
+
+background:#1E293B;
+
+color:white;
+
+}
+
+body.dark .investment-card h4,
+
+body.dark .summary-card h3,
+
+body.dark .goal-top h3{
+
+color:white;
+
+}
+
+body.dark .investment-card p,
+
+body.dark #goalText{
+
+color:#CBD5E1;
+
+}
+
+body.dark .summary-card li{
+
+border-color:#334155;
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:480px){
+
+.investment-page{
+
+padding:16px;
+
+}
+
+.portfolio-card{
+
+padding:24px;
+
+}
+
+.portfolio-card h1{
+
+font-size:30px;
+
+}
+
+.investment-grid{
+
+gap:14px;
+
+}
+
+.investment-card{
+
+padding:18px;
+
+}
+
+.investment-card i{
+
+width:55px;
+
+height:55px;
+
+font-size:24px;
+
+}
+
+.investment-card h4{
+
+font-size:15px;
+
+}
+
+.goal-card,
+
+.summary-card{
+
+padding:18px;
+
+}
+
+}
